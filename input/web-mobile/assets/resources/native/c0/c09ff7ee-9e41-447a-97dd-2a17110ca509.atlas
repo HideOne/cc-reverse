@@ -1,0 +1,167 @@
+spine_avatarbox_0.webp
+size: 220, 246
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_avatarbox=greenhat_leaf_1
+  rotate: false
+  xy: 191, 1
+  size: 28, 29
+  orig: 28, 29
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_13
+  rotate: false
+  xy: 106, 185
+  size: 33, 35
+  orig: 33, 35
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_14
+  rotate: false
+  xy: 159, 1
+  size: 30, 32
+  orig: 30, 32
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_15
+  rotate: false
+  xy: 175, 202
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_16
+  rotate: false
+  xy: 141, 202
+  size: 32, 34
+  orig: 32, 34
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_17
+  rotate: false
+  xy: 159, 35
+  size: 30, 32
+  orig: 30, 32
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_18
+  rotate: false
+  xy: 159, 102
+  size: 31, 30
+  orig: 31, 30
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_19
+  rotate: false
+  xy: 186, 134
+  size: 31, 29
+  orig: 31, 29
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_2
+  rotate: false
+  xy: 64, 152
+  size: 40, 39
+  orig: 40, 39
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_21
+  rotate: false
+  xy: 36, 204
+  size: 24, 25
+  orig: 24, 25
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_3
+  rotate: false
+  xy: 191, 61
+  size: 25, 24
+  orig: 25, 24
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_4
+  rotate: false
+  xy: 186, 165
+  size: 29, 29
+  orig: 29, 29
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_5
+  rotate: false
+  xy: 1, 204
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_6
+  rotate: false
+  xy: 192, 87
+  size: 21, 20
+  orig: 21, 20
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_7
+  rotate: false
+  xy: 64, 193
+  size: 33, 34
+  orig: 33, 34
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_8
+  rotate: false
+  xy: 191, 32
+  size: 28, 27
+  orig: 28, 27
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_leaf_9
+  rotate: false
+  xy: 141, 202
+  size: 32, 34
+  orig: 32, 34
+  offset: 0, 0
+  index: -1
+spine_avatarbox=greenhat_star
+  rotate: false
+  xy: 106, 152
+  size: 39, 31
+  orig: 39, 31
+  offset: 0, 0
+  index: -1
+spine_avatarbox=labor_ban
+  rotate: false
+  xy: 147, 152
+  size: 37, 48
+  orig: 37, 48
+  offset: 0, 0
+  index: -1
+spine_avatarbox=labor_dai1
+  rotate: false
+  xy: 99, 222
+  size: 30, 23
+  orig: 30, 23
+  offset: 0, 0
+  index: -1
+spine_avatarbox=labor_dai2
+  rotate: false
+  xy: 159, 69
+  size: 30, 31
+  orig: 30, 31
+  offset: 0, 0
+  index: -1
+spine_avatarbox=labor_frame
+  rotate: false
+  xy: 1, 1
+  size: 156, 149
+  orig: 156, 149
+  offset: 0, 0
+  index: -1
+spine_avatarbox=labor_hat
+  rotate: false
+  xy: 1, 152
+  size: 61, 50
+  orig: 61, 50
+  offset: 0, 0
+  index: -1
+

@@ -1,0 +1,41 @@
+spine_cash_club_dog_window_0.webp
+size: 454, 437
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_cash_club_dog_window=money
+  rotate: false
+  xy: 1, 364
+  size: 452, 72
+  orig: 452, 72
+  offset: 0, 0
+  index: -1
+spine_cash_club_dog_window=point
+  rotate: false
+  xy: 259, 67
+  size: 37, 37
+  orig: 37, 37
+  offset: 0, 0
+  index: -1
+spine_cash_club_dog_window=radiate
+  rotate: false
+  xy: 1, 1
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+spine_cash_club_dog_window=star
+  rotate: false
+  xy: 259, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+spine_cash_club_dog_window=title
+  rotate: false
+  xy: 1, 259
+  size: 413, 103
+  orig: 413, 103
+  offset: 0, 0
+  index: -1
+

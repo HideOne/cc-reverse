@@ -1,0 +1,594 @@
+spine_forestman_wild_0.webp
+size: 256, 2903
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_forestman_wild=1_1
+  rotate: false
+  xy: 211, 231
+  size: 43, 48
+  orig: 43, 48
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=1_2
+  rotate: false
+  xy: 65, 1718
+  size: 47, 56
+  orig: 47, 56
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=2_1
+  rotate: false
+  xy: 232, 49
+  size: 23, 40
+  orig: 23, 40
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=2_2
+  rotate: false
+  xy: 1, 1909
+  size: 27, 49
+  orig: 27, 49
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=3_1
+  rotate: false
+  xy: 232, 1
+  size: 20, 46
+  orig: 20, 46
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=3_2
+  rotate: false
+  xy: 65, 1776
+  size: 24, 55
+  orig: 24, 55
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=4_1
+  rotate: false
+  xy: 211, 395
+  size: 34, 41
+  orig: 34, 41
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=4_2
+  rotate: false
+  xy: 211, 346
+  size: 38, 47
+  orig: 38, 47
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen00
+  rotate: false
+  xy: 147, 231
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen01
+  rotate: false
+  xy: 1, 381
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen02
+  rotate: false
+  xy: 65, 381
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen03
+  rotate: false
+  xy: 129, 422
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen04
+  rotate: false
+  xy: 193, 438
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen05
+  rotate: false
+  xy: 1, 572
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen06
+  rotate: false
+  xy: 65, 572
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen07
+  rotate: false
+  xy: 129, 613
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen08
+  rotate: false
+  xy: 193, 629
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen09
+  rotate: false
+  xy: 1, 763
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen10
+  rotate: false
+  xy: 65, 763
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen11
+  rotate: false
+  xy: 129, 804
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen12
+  rotate: false
+  xy: 193, 820
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen13
+  rotate: false
+  xy: 1, 954
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen14
+  rotate: false
+  xy: 65, 954
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen15
+  rotate: false
+  xy: 129, 995
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen16
+  rotate: false
+  xy: 193, 1011
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen17
+  rotate: false
+  xy: 1, 1145
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen18
+  rotate: false
+  xy: 65, 1145
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen19
+  rotate: false
+  xy: 129, 1186
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen20
+  rotate: false
+  xy: 193, 1202
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen21
+  rotate: false
+  xy: 1, 1336
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen22
+  rotate: false
+  xy: 65, 1336
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen23
+  rotate: false
+  xy: 129, 1377
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen24
+  rotate: false
+  xy: 193, 1393
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen25
+  rotate: false
+  xy: 1, 1527
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen26
+  rotate: false
+  xy: 65, 1527
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen27
+  rotate: false
+  xy: 129, 1568
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen28
+  rotate: false
+  xy: 193, 1584
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=fen29
+  rotate: false
+  xy: 1, 1718
+  size: 62, 189
+  orig: 62, 189
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=frame
+  rotate: false
+  xy: 65, 1901
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=frame2
+  rotate: false
+  xy: 1, 2003
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=frame3
+  rotate: false
+  xy: 186, 1775
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=gd
+  rotate: false
+  xy: 1, 231
+  size: 144, 148
+  orig: 144, 148
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=ks
+  rotate: false
+  xy: 1, 1
+  size: 229, 228
+  orig: 229, 228
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline00
+  rotate: false
+  xy: 91, 1826
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline01
+  rotate: false
+  xy: 172, 1827
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline02
+  rotate: false
+  xy: 167, 1902
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline03
+  rotate: false
+  xy: 167, 1977
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline04
+  rotate: false
+  xy: 103, 2052
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline05
+  rotate: false
+  xy: 1, 2105
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline06
+  rotate: false
+  xy: 82, 2127
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline07
+  rotate: false
+  xy: 1, 2180
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline08
+  rotate: false
+  xy: 163, 2186
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline09
+  rotate: false
+  xy: 82, 2202
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline10
+  rotate: false
+  xy: 1, 2255
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline11
+  rotate: false
+  xy: 163, 2261
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline12
+  rotate: false
+  xy: 82, 2277
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline13
+  rotate: false
+  xy: 1, 2330
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline14
+  rotate: false
+  xy: 163, 2336
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline15
+  rotate: false
+  xy: 82, 2352
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline16
+  rotate: false
+  xy: 1, 2405
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline17
+  rotate: false
+  xy: 163, 2411
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline18
+  rotate: false
+  xy: 82, 2427
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smallline19
+  rotate: false
+  xy: 1, 2480
+  size: 79, 73
+  orig: 79, 73
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi00
+  rotate: false
+  xy: 114, 1759
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi01
+  rotate: false
+  xy: 184, 2052
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi02
+  rotate: false
+  xy: 184, 2119
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi03
+  rotate: false
+  xy: 163, 2486
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi04
+  rotate: false
+  xy: 82, 2502
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi05
+  rotate: false
+  xy: 1, 2555
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi06
+  rotate: false
+  xy: 154, 2553
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi07
+  rotate: false
+  xy: 73, 2569
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi08
+  rotate: false
+  xy: 1, 2622
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi09
+  rotate: false
+  xy: 145, 2620
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi10
+  rotate: false
+  xy: 73, 2636
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi11
+  rotate: false
+  xy: 1, 2689
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi12
+  rotate: false
+  xy: 145, 2687
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi13
+  rotate: false
+  xy: 73, 2703
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi14
+  rotate: false
+  xy: 1, 2756
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi15
+  rotate: false
+  xy: 145, 2754
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi16
+  rotate: false
+  xy: 73, 2770
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi17
+  rotate: false
+  xy: 1, 2823
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi18
+  rotate: false
+  xy: 145, 2821
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=wild4_smalllizi19
+  rotate: false
+  xy: 73, 2837
+  size: 70, 65
+  orig: 70, 65
+  offset: 0, 0
+  index: -1
+spine_forestman_wild=ye
+  rotate: false
+  xy: 211, 281
+  size: 30, 63
+  orig: 30, 63
+  offset: 0, 0
+  index: -1
+

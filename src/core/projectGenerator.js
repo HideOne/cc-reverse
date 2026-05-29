@@ -34,22 +34,22 @@ const projectGenerator = {
 
             // 写入配置文件
             await writeFile(
-                path.join(settingsDir, 'project.json'), 
+                path.join(settingsDir, 'project.json'),
                 JSON.stringify(settings, null, 2)
             );
-            
+
             await writeFile(
-                path.join(global.paths.output, 'project.json'), 
+                path.join(global.paths.output, 'project.json'),
                 JSON.stringify(project, null, 2)
             );
-            
+
             await writeFile(
-                path.join(global.paths.output, 'jsconfig.json'), 
+                path.join(global.paths.output, 'jsconfig.json'),
                 JSON.stringify(jsconfig, null, 2)
             );
-            
+
             await writeFile(
-                path.join(global.paths.output, 'tsconfig.json'), 
+                path.join(global.paths.output, 'tsconfig.json'),
                 JSON.stringify(tsconfig, null, 2)
             );
 
@@ -68,7 +68,7 @@ const projectGenerator = {
     createProjectConfig(name = "project") {
         // 根据检测到的版本设置相应的版本号
         const version = this.getProjectVersion();
-        
+
         return {
             "engine": "cocos-creator-js",
             "packages": "packages",
@@ -183,11 +183,11 @@ const projectGenerator = {
             if (global.settings["groupList"]) {
                 settings["group-list"] = global.settings["groupList"];
             }
-            
+
             if (global.settings["collisionMatrix"]) {
                 settings["collision-matrix"] = global.settings["collisionMatrix"];
             }
-            
+
             if (global.settings["launchScene"]) {
                 settings["start-scene"] = path.basename(global.settings["launchScene"]).split(".")[0];
             }

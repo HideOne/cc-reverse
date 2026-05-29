@@ -1,0 +1,146 @@
+spine_activity_puzzlechallenge_nan_0.webp
+size: 1002, 856
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_activity_puzzlechallenge_nan=ban
+  rotate: false
+  xy: 399, 246
+  size: 323, 200
+  orig: 323, 200
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=bi
+  rotate: false
+  xy: 345, 615
+  size: 170, 140
+  orig: 170, 140
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=guang
+  rotate: false
+  xy: 517, 748
+  size: 150, 94
+  orig: 150, 94
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=hua
+  rotate: false
+  xy: 1, 733
+  size: 152, 122
+  orig: 152, 122
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=huzi
+  rotate: false
+  xy: 717, 599
+  size: 245, 124
+  orig: 245, 124
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=ku1
+  rotate: false
+  xy: 564, 598
+  size: 151, 148
+  orig: 151, 148
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=ku2
+  rotate: false
+  xy: 564, 448
+  size: 158, 148
+  orig: 158, 148
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=lang
+  rotate: false
+  xy: 399, 1
+  size: 541, 243
+  orig: 541, 243
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=mei
+  rotate: false
+  xy: 329, 757
+  size: 182, 60
+  orig: 182, 60
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=shen
+  rotate: false
+  xy: 345, 448
+  size: 217, 165
+  orig: 217, 165
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=shou1
+  rotate: false
+  xy: 190, 623
+  size: 137, 147
+  orig: 137, 147
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=shou2
+  rotate: false
+  xy: 717, 725
+  size: 183, 91
+  orig: 183, 91
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=tou
+  rotate: false
+  xy: 1, 1
+  size: 396, 380
+  orig: 396, 380
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=tui1
+  rotate: false
+  xy: 1, 383
+  size: 215, 171
+  orig: 215, 171
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=tui2
+  rotate: false
+  xy: 724, 246
+  size: 270, 189
+  orig: 270, 189
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=xiu1
+  rotate: false
+  xy: 942, 1
+  size: 59, 72
+  orig: 59, 72
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=xiu2
+  rotate: false
+  xy: 218, 383
+  size: 125, 238
+  orig: 125, 238
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=yao
+  rotate: false
+  xy: 155, 772
+  size: 142, 47
+  orig: 142, 47
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=yi1
+  rotate: false
+  xy: 1, 556
+  size: 187, 175
+  orig: 187, 175
+  offset: 0, 0
+  index: -1
+spine_activity_puzzlechallenge_nan=yi2
+  rotate: false
+  xy: 724, 437
+  size: 270, 160
+  orig: 270, 160
+  offset: 0, 0
+  index: -1
+

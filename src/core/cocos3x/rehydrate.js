@@ -384,12 +384,12 @@ function decodeValueType(data) {
     case 3: // Quat
       out.x = data[1]; out.y = data[2]; out.z = data[3]; out.w = data[4];
       break;
-    case 4: { // Color (uint32 → r,g,b,a)
-      const rgba = data[1] >>> 0;
-      out.r = (rgba >>> 24) & 0xff;
-      out.g = (rgba >>> 16) & 0xff;
-      out.b = (rgba >>> 8) & 0xff;
-      out.a = rgba & 0xff;
+    case 4: { // Color — Cocos 2.4 stores uint32 as ABGR (a<<24 | b<<16 | g<<8 | r)
+      const abgr = data[1] >>> 0;
+      out.r = abgr & 0xff;
+      out.g = (abgr >>> 8) & 0xff;
+      out.b = (abgr >>> 16) & 0xff;
+      out.a = (abgr >>> 24) & 0xff;
       break;
     }
     case 5: // Size
@@ -613,7 +613,83 @@ function extractPropTypeOffset(def) {
 
 module.exports = {
   rehydrateIFileData,
+  expandEditorUuids,
+  expandEditorFormat,
   DataTypeID,
   File,
   VALUE_TYPE_CONSTRUCTORS,
 };
+
+/**
+ * Post-process a rehydrated .fire document array for Cocos Creator 2.4 editor
+ * compatibility: extract inline components, mirror Label properties, etc.
+ */
+function expandEditorFormat(instances) {
+  if (!Array.isArray(instances)) return instances;
+  deflattenInlineComponents(instances);
+  expandEditorMirrorProperties(instances);
+  return instances;
+}
+
+function deflattenInlineComponents(instances) {
+  for (let i = 0; i < instances.length; i += 1) {
+    const obj = instances[i];
+    if (!obj || obj.__type__ !== 'cc.Node' || !Array.isArray(obj._components)) continue;
+
+    const next = [];
+    for (const comp of obj._components) {
+      if (comp && typeof comp === 'object' && comp.__type__ && !('__id__' in comp)) {
+        const newIdx = instances.length;
+        if (!comp.node) comp.node = { __id__: i };
+        instances.push(comp);
+        next.push({ __id__: newIdx });
+      } else {
+        next.push(comp);
+      }
+    }
+    obj._components = next;
+  }
+}
+
+function expandEditorMirrorProperties(instances) {
+  for (const obj of instances) {
+    if (!obj || typeof obj !== 'object') continue;
+    if (obj.__type__ !== 'cc.Label') continue;
+
+    if (obj._string != null && obj._N$string == null) {
+      obj._N$string = obj._string;
+    }
+    if (obj._dstBlendFactor == null) obj._dstBlendFactor = 771;
+    if (obj._enableWrapText == null) obj._enableWrapText = true;
+    if (!('_N$file' in obj)) obj._N$file = null;
+    if (obj._isSystemFontUsed == null) obj._isSystemFontUsed = true;
+    if (obj._spacingX == null) obj._spacingX = 0;
+    if (obj._batchAsBitmap == null) obj._batchAsBitmap = false;
+    if (obj._styleFlags == null) obj._styleFlags = 0;
+    if (obj._underlineHeight == null) obj._underlineHeight = 0;
+    if (obj._N$fontFamily == null) obj._N$fontFamily = 'Arial';
+    if (obj._N$overflow == null) obj._N$overflow = 0;
+    if (obj._N$cacheMode == null) obj._N$cacheMode = 0;
+  }
+}
+
+function expandEditorUuids(node, seen = new WeakSet()) {
+  if (!node || typeof node !== 'object') return;
+  if (seen.has(node)) return;
+  seen.add(node);
+
+  if (Array.isArray(node)) {
+    for (const item of node) expandEditorUuids(item, seen);
+    return;
+  }
+
+  if (typeof node.__uuid__ === 'string') {
+    const { uuidUtils } = require('../../utils/uuidUtils');
+    node.__uuid__ = uuidUtils.decodeUuid(node.__uuid__);
+  }
+
+  for (const key of Object.keys(node)) {
+    if (key === '__uuid__') continue;
+    expandEditorUuids(node[key], seen);
+  }
+}

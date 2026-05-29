@@ -1,0 +1,258 @@
+spine_mycasino_loading_0.webp
+size: 986, 1974
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_mycasino_loading=bg
+  rotate: false
+  xy: 1, 1
+  size: 720, 1218
+  orig: 720, 1218
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=earth
+  rotate: false
+  xy: 723, 1
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=earthshadow
+  rotate: false
+  xy: 328, 1221
+  size: 330, 88
+  orig: 330, 88
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=jianzhu1
+  rotate: false
+  xy: 1, 1221
+  size: 325, 375
+  orig: 325, 375
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=jianzhu2
+  rotate: false
+  xy: 1, 1598
+  size: 325, 375
+  orig: 325, 375
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=jianzhu3
+  rotate: false
+  xy: 660, 1221
+  size: 325, 375
+  orig: 325, 375
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=jianzhu4
+  rotate: false
+  xy: 328, 1598
+  size: 325, 375
+  orig: 325, 375
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=jianzhu5
+  rotate: false
+  xy: 655, 1598
+  size: 325, 375
+  orig: 325, 375
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_1
+  rotate: false
+  xy: 894, 282
+  size: 14, 12
+  orig: 14, 12
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_10
+  rotate: false
+  xy: 954, 888
+  size: 29, 27
+  orig: 29, 27
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_11
+  rotate: false
+  xy: 723, 409
+  size: 126, 105
+  orig: 126, 105
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_12
+  rotate: false
+  xy: 723, 263
+  size: 169, 144
+  orig: 169, 144
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_13
+  rotate: false
+  xy: 847, 660
+  size: 120, 114
+  orig: 120, 114
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_14
+  rotate: false
+  xy: 878, 541
+  size: 77, 68
+  orig: 77, 68
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_15
+  rotate: false
+  xy: 723, 788
+  size: 44, 34
+  orig: 44, 34
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_16
+  rotate: false
+  xy: 723, 709
+  size: 109, 77
+  orig: 109, 77
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_17
+  rotate: false
+  xy: 921, 259
+  size: 59, 76
+  orig: 59, 76
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_18
+  rotate: false
+  xy: 904, 835
+  size: 48, 62
+  orig: 48, 62
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_19
+  rotate: false
+  xy: 834, 776
+  size: 68, 77
+  orig: 68, 77
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_2
+  rotate: false
+  xy: 894, 263
+  size: 24, 17
+  orig: 24, 17
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_20
+  rotate: false
+  xy: 851, 488
+  size: 30, 42
+  orig: 30, 42
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_21
+  rotate: false
+  xy: 954, 835
+  size: 29, 51
+  orig: 29, 51
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_22
+  rotate: false
+  xy: 894, 426
+  size: 80, 68
+  orig: 80, 68
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_23
+  rotate: false
+  xy: 723, 669
+  size: 111, 38
+  orig: 111, 38
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_24
+  rotate: false
+  xy: 723, 516
+  size: 122, 151
+  orig: 122, 151
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_25
+  rotate: false
+  xy: 894, 337
+  size: 87, 87
+  orig: 87, 87
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_26
+  rotate: false
+  xy: 723, 259
+  size: 196, 2
+  orig: 196, 2
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_27
+  rotate: false
+  xy: 851, 439
+  size: 36, 47
+  orig: 36, 47
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_28
+  rotate: false
+  xy: 878, 611
+  size: 51, 42
+  orig: 51, 42
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_3
+  rotate: false
+  xy: 910, 282
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_4
+  rotate: false
+  xy: 931, 611
+  size: 49, 28
+  orig: 49, 28
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_5
+  rotate: false
+  xy: 904, 776
+  size: 65, 57
+  orig: 65, 57
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_6
+  rotate: false
+  xy: 894, 296
+  size: 8, 12
+  orig: 8, 12
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_7
+  rotate: false
+  xy: 883, 496
+  size: 94, 43
+  orig: 94, 43
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_8
+  rotate: false
+  xy: 851, 409
+  size: 41, 28
+  orig: 41, 28
+  offset: 0, 0
+  index: -1
+spine_mycasino_loading=man_9
+  rotate: false
+  xy: 847, 532
+  size: 29, 126
+  orig: 29, 126
+  offset: 0, 0
+  index: -1
+

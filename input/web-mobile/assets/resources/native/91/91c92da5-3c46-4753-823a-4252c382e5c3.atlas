@@ -1,0 +1,76 @@
+spine_activity_btn_0.webp
+size: 2020, 51
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_activity_btn=deal_green_00
+  rotate: false
+  xy: 1, 1
+  size: 200, 49
+  orig: 200, 49
+  offset: 0, 0
+  index: -1
+spine_activity_btn=deal_green_01
+  rotate: false
+  xy: 203, 1
+  size: 200, 49
+  orig: 200, 49
+  offset: 0, 0
+  index: -1
+spine_activity_btn=deal_green_02
+  rotate: false
+  xy: 405, 1
+  size: 200, 49
+  orig: 200, 49
+  offset: 0, 0
+  index: -1
+spine_activity_btn=deal_green_03
+  rotate: false
+  xy: 607, 1
+  size: 200, 49
+  orig: 200, 49
+  offset: 0, 0
+  index: -1
+spine_activity_btn=deal_green_04
+  rotate: false
+  xy: 809, 1
+  size: 200, 49
+  orig: 200, 49
+  offset: 0, 0
+  index: -1
+spine_activity_btn=deal_green_05
+  rotate: false
+  xy: 1011, 1
+  size: 200, 49
+  orig: 200, 49
+  offset: 0, 0
+  index: -1
+spine_activity_btn=deal_green_06
+  rotate: false
+  xy: 1213, 1
+  size: 200, 49
+  orig: 200, 49
+  offset: 0, 0
+  index: -1
+spine_activity_btn=deal_green_07
+  rotate: false
+  xy: 1415, 1
+  size: 200, 49
+  orig: 200, 49
+  offset: 0, 0
+  index: -1
+spine_activity_btn=deal_green_08
+  rotate: false
+  xy: 1617, 1
+  size: 200, 49
+  orig: 200, 49
+  offset: 0, 0
+  index: -1
+spine_activity_btn=deal_green_09
+  rotate: false
+  xy: 1819, 1
+  size: 200, 49
+  orig: 200, 49
+  offset: 0, 0
+  index: -1
+

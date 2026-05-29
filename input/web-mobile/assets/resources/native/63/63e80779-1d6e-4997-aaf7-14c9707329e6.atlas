@@ -1,0 +1,195 @@
+spine_activity_freebouns_tc1_0.webp
+size: 2432, 967
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_activity_freebouns_tc1=biaoti_1
+  rotate: false
+  xy: 1, 881
+  size: 419, 85
+  orig: 419, 85
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=biaoti_2
+  rotate: false
+  xy: 1984, 444
+  size: 429, 97
+  orig: 429, 97
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=biaoti_3
+  rotate: false
+  xy: 1984, 339
+  size: 435, 103
+  orig: 435, 103
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=coins_1
+  rotate: false
+  xy: 2110, 794
+  size: 138, 112
+  orig: 138, 112
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=coins_2
+  rotate: false
+  xy: 1949, 765
+  size: 159, 115
+  orig: 159, 115
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=coins_3
+  rotate: false
+  xy: 422, 881
+  size: 113, 66
+  orig: 113, 66
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=coins_4
+  rotate: false
+  xy: 1655, 707
+  size: 164, 126
+  orig: 164, 126
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=coins_5
+  rotate: false
+  xy: 1821, 707
+  size: 116, 53
+  orig: 116, 53
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=coins_6
+  rotate: false
+  xy: 1655, 835
+  size: 162, 106
+  orig: 162, 106
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=deng_1
+  rotate: false
+  xy: 1893, 1
+  size: 538, 167
+  orig: 538, 167
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=deng_2
+  rotate: false
+  xy: 1893, 170
+  size: 538, 167
+  orig: 538, 167
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=deng_3
+  rotate: false
+  xy: 1444, 392
+  size: 538, 167
+  orig: 538, 167
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=fx_star
+  rotate: false
+  xy: 1819, 835
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=g1
+  rotate: false
+  xy: 1949, 584
+  size: 233, 179
+  orig: 233, 179
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=g2
+  rotate: false
+  xy: 2184, 584
+  size: 196, 208
+  orig: 196, 208
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=g3
+  rotate: false
+  xy: 1334, 707
+  size: 162, 233
+  orig: 162, 233
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=g4
+  rotate: false
+  xy: 1498, 707
+  size: 155, 173
+  orig: 155, 173
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=gd_1
+  rotate: false
+  xy: 1949, 561
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=gd_2
+  rotate: false
+  xy: 1893, 339
+  size: 22, 22
+  orig: 22, 22
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=gold_back
+  rotate: false
+  xy: 724, 565
+  size: 604, 230
+  orig: 604, 230
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=guang_1
+  rotate: false
+  xy: 724, 1
+  size: 718, 562
+  orig: 718, 562
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=guang_2
+  rotate: false
+  xy: 1, 1
+  size: 721, 878
+  orig: 721, 878
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=jinbi
+  rotate: false
+  xy: 1444, 561
+  size: 503, 144
+  orig: 503, 144
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=tv_1
+  rotate: false
+  xy: 1330, 565
+  size: 87, 100
+  orig: 87, 100
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=tv_2
+  rotate: false
+  xy: 1444, 1
+  size: 447, 389
+  orig: 447, 389
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=word
+  rotate: false
+  xy: 1984, 543
+  size: 355, 39
+  orig: 355, 39
+  offset: 0, 0
+  index: -1
+spine_activity_freebouns_tc1=wutai
+  rotate: false
+  xy: 724, 797
+  size: 608, 169
+  orig: 608, 169
+  offset: 0, 0
+  index: -1
+

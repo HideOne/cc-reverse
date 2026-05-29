@@ -1,0 +1,20 @@
+spine_dailyrewards_yinni_0.webp
+size: 304, 167
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_dailyrewards_yinni=dui
+  rotate: false
+  xy: 175, 1
+  size: 128, 130
+  orig: 128, 130
+  offset: 0, 0
+  index: -1
+spine_dailyrewards_yinni=yin
+  rotate: false
+  xy: 1, 1
+  size: 172, 165
+  orig: 172, 165
+  offset: 0, 0
+  index: -1
+

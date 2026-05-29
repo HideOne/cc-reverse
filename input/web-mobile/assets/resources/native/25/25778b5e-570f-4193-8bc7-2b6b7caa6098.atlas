@@ -1,0 +1,237 @@
+spine_mycasino_jinru_0.webp
+size: 503, 3634
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_mycasino_jinru=1
+  rotate: false
+  xy: 357, 2335
+  size: 108, 192
+  orig: 108, 192
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=2
+  rotate: false
+  xy: 254, 3333
+  size: 124, 207
+  orig: 124, 207
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=3
+  rotate: false
+  xy: 216, 1161
+  size: 119, 220
+  orig: 119, 220
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=4
+  rotate: false
+  xy: 380, 2819
+  size: 122, 228
+  orig: 122, 228
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=5
+  rotate: false
+  xy: 337, 1158
+  size: 95, 181
+  orig: 95, 181
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=ban
+  rotate: false
+  xy: 1, 1
+  size: 474, 591
+  orig: 474, 591
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=di
+  rotate: false
+  xy: 1, 2107
+  size: 501, 226
+  orig: 501, 226
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_circle
+  rotate: false
+  xy: 216, 1383
+  size: 215, 214
+  orig: 215, 214
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_par_line
+  rotate: false
+  xy: 400, 3305
+  size: 78, 17
+  orig: 78, 17
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_par_point
+  rotate: false
+  xy: 477, 1
+  size: 19, 19
+  orig: 19, 19
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_point
+  rotate: false
+  xy: 467, 2335
+  size: 14, 16
+  orig: 14, 16
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_pointglow
+  rotate: false
+  xy: 400, 3235
+  size: 64, 68
+  orig: 64, 68
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_pointlight1
+  rotate: false
+  xy: 380, 3324
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_pointlight2
+  rotate: false
+  xy: 380, 3446
+  size: 109, 112
+  orig: 109, 112
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_sputtering
+  rotate: false
+  xy: 304, 3235
+  size: 94, 87
+  orig: 94, 87
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_title_00
+  rotate: false
+  xy: 304, 3049
+  size: 174, 184
+  orig: 174, 184
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_title_01
+  rotate: false
+  xy: 229, 1599
+  size: 214, 204
+  orig: 214, 204
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_title_02
+  rotate: false
+  xy: 1, 3333
+  size: 251, 209
+  orig: 251, 209
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_title_03
+  rotate: false
+  xy: 1, 2934
+  size: 296, 209
+  orig: 296, 209
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_title_04
+  rotate: false
+  xy: 1, 2530
+  size: 332, 205
+  orig: 332, 205
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_title_05
+  rotate: false
+  xy: 1, 2737
+  size: 338, 195
+  orig: 338, 195
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_title_06
+  rotate: false
+  xy: 1, 3145
+  size: 301, 186
+  orig: 301, 186
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_title_07
+  rotate: false
+  xy: 242, 1000
+  size: 255, 156
+  orig: 255, 156
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_title_08
+  rotate: false
+  xy: 229, 1805
+  size: 212, 150
+  orig: 212, 150
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=eff_title_09
+  rotate: false
+  xy: 229, 1957
+  size: 163, 138
+  orig: 163, 138
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=guang1
+  rotate: false
+  xy: 1, 1161
+  size: 213, 546
+  orig: 213, 546
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=guang2
+  rotate: false
+  xy: 242, 594
+  size: 251, 404
+  orig: 251, 404
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=suo
+  rotate: false
+  xy: 434, 1158
+  size: 54, 67
+  orig: 54, 67
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=title
+  rotate: false
+  xy: 1, 2335
+  size: 354, 193
+  orig: 354, 193
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=wu1
+  rotate: false
+  xy: 341, 2530
+  size: 161, 287
+  orig: 161, 287
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=wu2
+  rotate: false
+  xy: 1, 1709
+  size: 226, 396
+  orig: 226, 396
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=wu3
+  rotate: false
+  xy: 1, 594
+  size: 239, 565
+  orig: 239, 565
+  offset: 0, 0
+  index: -1
+spine_mycasino_jinru=zi
+  rotate: false
+  xy: 1, 3544
+  size: 301, 89
+  orig: 301, 89
+  offset: 0, 0
+  index: -1
+

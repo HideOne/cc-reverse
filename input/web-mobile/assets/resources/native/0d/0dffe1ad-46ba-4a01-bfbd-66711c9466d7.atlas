@@ -1,0 +1,405 @@
+spine_freecoins_baoxiang_0.webp
+size: 504, 1423
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_freecoins_baoxiang=boom00
+  rotate: false
+  xy: 1, 213
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom01
+  rotate: false
+  xy: 231, 285
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom02
+  rotate: false
+  xy: 1, 356
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom03
+  rotate: false
+  xy: 368, 285
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom04
+  rotate: false
+  xy: 224, 428
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom05
+  rotate: false
+  xy: 1, 499
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom06
+  rotate: false
+  xy: 361, 428
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom07
+  rotate: false
+  xy: 224, 571
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom08
+  rotate: false
+  xy: 1, 642
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom09
+  rotate: false
+  xy: 361, 571
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom10
+  rotate: false
+  xy: 224, 714
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom11
+  rotate: false
+  xy: 1, 785
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom12
+  rotate: false
+  xy: 361, 714
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom13
+  rotate: false
+  xy: 224, 857
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom14
+  rotate: false
+  xy: 1, 928
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=boom15
+  rotate: false
+  xy: 361, 857
+  size: 135, 141
+  orig: 135, 141
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=eff01
+  rotate: false
+  xy: 451, 97
+  size: 25, 24
+  orig: 25, 24
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=j_box1
+  rotate: false
+  xy: 236, 1
+  size: 213, 161
+  orig: 213, 161
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=j_box2
+  rotate: false
+  xy: 224, 1000
+  size: 169, 112
+  orig: 169, 112
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=j_box3
+  rotate: false
+  xy: 259, 1352
+  size: 75, 52
+  orig: 75, 52
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=j_box4
+  rotate: false
+  xy: 212, 1114
+  size: 167, 92
+  orig: 167, 92
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=j_box5
+  rotate: false
+  xy: 431, 1216
+  size: 61, 75
+  orig: 61, 75
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=liang
+  rotate: false
+  xy: 1, 1
+  size: 233, 210
+  orig: 233, 210
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw00
+  rotate: false
+  xy: 138, 305
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw01
+  rotate: false
+  xy: 138, 377
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw02
+  rotate: false
+  xy: 138, 449
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw03
+  rotate: false
+  xy: 138, 521
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw04
+  rotate: false
+  xy: 138, 593
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw05
+  rotate: false
+  xy: 138, 665
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw06
+  rotate: false
+  xy: 138, 737
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw07
+  rotate: false
+  xy: 138, 809
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw08
+  rotate: false
+  xy: 138, 881
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw09
+  rotate: false
+  xy: 138, 953
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw10
+  rotate: false
+  xy: 138, 1025
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw11
+  rotate: false
+  xy: 126, 1097
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw12
+  rotate: false
+  xy: 1, 1159
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw13
+  rotate: false
+  xy: 395, 1000
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw14
+  rotate: false
+  xy: 395, 1072
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw15
+  rotate: false
+  xy: 87, 1169
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw16
+  rotate: false
+  xy: 1, 1231
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw17
+  rotate: false
+  xy: 381, 1144
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw18
+  rotate: false
+  xy: 173, 1208
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw19
+  rotate: false
+  xy: 87, 1241
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw20
+  rotate: false
+  xy: 1, 1303
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw21
+  rotate: false
+  xy: 259, 1208
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw22
+  rotate: false
+  xy: 345, 1216
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw23
+  rotate: false
+  xy: 173, 1280
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw24
+  rotate: false
+  xy: 87, 1313
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw25
+  rotate: false
+  xy: 259, 1280
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw26
+  rotate: false
+  xy: 345, 1288
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=sw27
+  rotate: false
+  xy: 173, 1352
+  size: 84, 70
+  orig: 84, 70
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=xian
+  rotate: false
+  xy: 1, 1071
+  size: 123, 86
+  orig: 123, 86
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=xx1
+  rotate: false
+  xy: 451, 1
+  size: 45, 46
+  orig: 45, 46
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=xx2
+  rotate: false
+  xy: 451, 49
+  size: 45, 46
+  orig: 45, 46
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=xx3
+  rotate: false
+  xy: 431, 1293
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=xxdd3
+  rotate: false
+  xy: 138, 213
+  size: 91, 90
+  orig: 91, 90
+  offset: 0, 0
+  index: -1
+spine_freecoins_baoxiang=y_box6
+  rotate: false
+  xy: 236, 164
+  size: 218, 119
+  orig: 218, 119
+  offset: 0, 0
+  index: -1
+

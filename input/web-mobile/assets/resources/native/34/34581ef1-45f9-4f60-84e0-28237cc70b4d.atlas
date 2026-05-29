@@ -1,0 +1,188 @@
+spine_ui_top_btn_shopdeal_0.webp
+size: 1976, 43
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_ui_top_btn_shopdeal=left_00
+  rotate: false
+  xy: 1, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=left_01
+  rotate: false
+  xy: 77, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=left_02
+  rotate: false
+  xy: 153, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=left_03
+  rotate: false
+  xy: 229, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=left_04
+  rotate: false
+  xy: 305, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=left_05
+  rotate: false
+  xy: 381, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=left_06
+  rotate: false
+  xy: 457, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=left_07
+  rotate: false
+  xy: 533, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=left_08
+  rotate: false
+  xy: 609, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=left_09
+  rotate: false
+  xy: 685, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=left_10
+  rotate: false
+  xy: 761, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=left_11
+  rotate: false
+  xy: 837, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=left_12
+  rotate: false
+  xy: 913, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_00
+  rotate: false
+  xy: 989, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_01
+  rotate: false
+  xy: 1065, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_02
+  rotate: false
+  xy: 1141, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_03
+  rotate: false
+  xy: 1217, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_04
+  rotate: false
+  xy: 1293, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_05
+  rotate: false
+  xy: 1369, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_06
+  rotate: false
+  xy: 1445, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_07
+  rotate: false
+  xy: 1521, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_08
+  rotate: false
+  xy: 1597, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_09
+  rotate: false
+  xy: 1673, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_10
+  rotate: false
+  xy: 1749, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_11
+  rotate: false
+  xy: 1825, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+spine_ui_top_btn_shopdeal=right_12
+  rotate: false
+  xy: 1901, 1
+  size: 74, 41
+  orig: 74, 41
+  offset: 0, 0
+  index: -1
+

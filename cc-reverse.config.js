@@ -25,7 +25,10 @@ module.exports = {
         extractAudio: true,
         extractAnimations: true,
         optimizeSprites: false,
-        spriteOutputMode: "single" // "single"（逐张导出）或 "atlas"（图集模式）
+        spriteOutputMode: "single", // "single"（逐张导出）或 "atlas"（图集模式）
+        convertAstcToWebp: true,    // 反解完成后用 astcenc 将 .astc 转为 .webp
+        astcencPath: null,          // 默认 tool/astcenc-avx2.exe
+        cwebpPath: null             // PNG->WebP 备用工具，默认 tool/cwebp.exe 或 sharp
     },
 
     // 解密配置

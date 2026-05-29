@@ -9,6 +9,7 @@
  * class name, original project path, and resolved import/native file paths.
  */
 const path = require('path');
+const fs = require('fs');
 const { uuidUtils } = require('../../utils/uuidUtils');
 
 /**
@@ -125,11 +126,20 @@ function indexedVersionMap(flat, uuids) {
   const out = {};
   if (!Array.isArray(flat)) return out;
   for (let i = 0; i < flat.length; i += 2) {
-    const idx = parseInt(flat[i], 10);
+    const key = flat[i];
     const ver = flat[i + 1];
-    if (Number.isNaN(idx) || ver == null) continue;
-    const uuid = uuids[idx];
-    if (uuid) out[uuid] = String(ver);
+    if (key == null || ver == null) continue;
+
+    const keyStr = String(key);
+    const idx = Number.parseInt(keyStr, 10);
+    if (/^\d+$/.test(keyStr) && !Number.isNaN(idx) && uuids[idx]) {
+      out[uuids[idx]] = String(ver);
+      continue;
+    }
+
+    const decoded = uuidUtils.decodeUuid(keyStr);
+    out[decoded] = String(ver);
+    if (decoded !== keyStr) out[keyStr] = String(ver);
   }
   return out;
 }
@@ -168,4 +178,24 @@ function getNativePath(cfg, uuid, ext) {
   return path.join(cfg.baseDir, cfg.nativeBase, uuid.slice(0, 2), name);
 }
 
-module.exports = { parseBundleConfig, getImportPath, getNativePath };
+function findBundleConfigPath(bundleDir) {
+  const plain = path.join(bundleDir, 'config.json');
+  if (fs.existsSync(plain)) return plain;
+  let entries;
+  try {
+    entries = fs.readdirSync(bundleDir);
+  } catch {
+    return null;
+  }
+  const matches = entries.filter((e) => /^config\.[0-9a-f]+\.json$/i.test(e));
+  if (matches.length === 0) return null;
+  matches.sort();
+  return path.join(bundleDir, matches[0]);
+}
+
+module.exports = {
+  parseBundleConfig,
+  getImportPath,
+  getNativePath,
+  findBundleConfigPath,
+};

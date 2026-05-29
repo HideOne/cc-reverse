@@ -1,0 +1,27 @@
+spine_activity_crazyboxparty_logo_0.webp
+size: 84, 171
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_activity_crazyboxparty_logo=box_1
+  rotate: false
+  xy: 1, 1
+  size: 82, 88
+  orig: 82, 88
+  offset: 0, 0
+  index: -1
+spine_activity_crazyboxparty_logo=box_2
+  rotate: false
+  xy: 1, 91
+  size: 70, 34
+  orig: 70, 34
+  offset: 0, 0
+  index: -1
+spine_activity_crazyboxparty_logo=word
+  rotate: false
+  xy: 1, 127
+  size: 66, 43
+  orig: 66, 43
+  offset: 0, 0
+  index: -1
+

@@ -1,0 +1,83 @@
+spine_activity_winningrace_getpoint_0.webp
+size: 1404, 131
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_activity_winningrace_getpoint=eff_arrow
+  rotate: false
+  xy: 1351, 1
+  size: 52, 52
+  orig: 52, 52
+  offset: 0, 0
+  index: -1
+spine_activity_winningrace_getpoint=eff_ls_00
+  rotate: false
+  xy: 1, 1
+  size: 133, 129
+  orig: 133, 129
+  offset: 0, 0
+  index: -1
+spine_activity_winningrace_getpoint=eff_ls_01
+  rotate: false
+  xy: 136, 1
+  size: 133, 129
+  orig: 133, 129
+  offset: 0, 0
+  index: -1
+spine_activity_winningrace_getpoint=eff_ls_02
+  rotate: false
+  xy: 271, 1
+  size: 133, 129
+  orig: 133, 129
+  offset: 0, 0
+  index: -1
+spine_activity_winningrace_getpoint=eff_ls_03
+  rotate: false
+  xy: 406, 1
+  size: 133, 129
+  orig: 133, 129
+  offset: 0, 0
+  index: -1
+spine_activity_winningrace_getpoint=eff_ls_04
+  rotate: false
+  xy: 541, 1
+  size: 133, 129
+  orig: 133, 129
+  offset: 0, 0
+  index: -1
+spine_activity_winningrace_getpoint=eff_ls_05
+  rotate: false
+  xy: 676, 1
+  size: 133, 129
+  orig: 133, 129
+  offset: 0, 0
+  index: -1
+spine_activity_winningrace_getpoint=eff_ls_06
+  rotate: false
+  xy: 811, 1
+  size: 133, 129
+  orig: 133, 129
+  offset: 0, 0
+  index: -1
+spine_activity_winningrace_getpoint=eff_ls_07
+  rotate: false
+  xy: 946, 1
+  size: 133, 129
+  orig: 133, 129
+  offset: 0, 0
+  index: -1
+spine_activity_winningrace_getpoint=eff_ls_08
+  rotate: false
+  xy: 1081, 1
+  size: 133, 129
+  orig: 133, 129
+  offset: 0, 0
+  index: -1
+spine_activity_winningrace_getpoint=eff_ls_09
+  rotate: false
+  xy: 1216, 1
+  size: 133, 129
+  orig: 133, 129
+  offset: 0, 0
+  index: -1
+

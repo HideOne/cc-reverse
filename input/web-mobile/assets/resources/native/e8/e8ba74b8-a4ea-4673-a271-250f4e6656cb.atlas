@@ -1,0 +1,27 @@
+spine_dailyrewards_seventh_0.webp
+size: 212, 278
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_dailyrewards_seventh=glow01
+  rotate: false
+  xy: 1, 213
+  size: 120, 45
+  orig: 120, 45
+  offset: 0, 0
+  index: -1
+spine_dailyrewards_seventh=glow02
+  rotate: false
+  xy: 1, 1
+  size: 210, 210
+  orig: 210, 210
+  offset: 0, 0
+  index: -1
+spine_dailyrewards_seventh=xx
+  rotate: false
+  xy: 123, 213
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+

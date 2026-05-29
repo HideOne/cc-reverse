@@ -1,0 +1,125 @@
+spine_ui_totalwin_effect_0.webp
+size: 3740, 58
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_ui_totalwin_effect=frame
+  rotate: false
+  xy: 1, 1
+  size: 435, 56
+  orig: 435, 56
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_00
+  rotate: false
+  xy: 438, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_01
+  rotate: false
+  xy: 657, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_02
+  rotate: false
+  xy: 876, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_03
+  rotate: false
+  xy: 1095, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_04
+  rotate: false
+  xy: 1314, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_05
+  rotate: false
+  xy: 1533, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_06
+  rotate: false
+  xy: 1752, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_07
+  rotate: false
+  xy: 1971, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_08
+  rotate: false
+  xy: 2190, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_09
+  rotate: false
+  xy: 2409, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_10
+  rotate: false
+  xy: 2628, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_11
+  rotate: false
+  xy: 2847, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_12
+  rotate: false
+  xy: 3066, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_13
+  rotate: false
+  xy: 3285, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=ls_14
+  rotate: false
+  xy: 3504, 1
+  size: 217, 55
+  orig: 217, 55
+  offset: 0, 0
+  index: -1
+spine_ui_totalwin_effect=star
+  rotate: false
+  xy: 3723, 1
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+

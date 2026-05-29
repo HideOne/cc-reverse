@@ -1,0 +1,286 @@
+spine_xinshouyindao_first_purchase_0.webp
+size: 1010, 1720
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_xinshouyindao_first_purchase=ban
+  rotate: false
+  xy: 1, 1380
+  size: 416, 300
+  orig: 416, 300
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=ban1
+  rotate: false
+  xy: 291, 851
+  size: 462, 97
+  orig: 462, 97
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=bi
+  rotate: false
+  xy: 291, 653
+  size: 467, 196
+  orig: 467, 196
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=bi1
+  rotate: false
+  xy: 878, 551
+  size: 95, 98
+  orig: 95, 98
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=bi2
+  rotate: false
+  xy: 907, 1517
+  size: 50, 43
+  orig: 50, 43
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=bi3
+  rotate: false
+  xy: 323, 1682
+  size: 50, 34
+  orig: 50, 34
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=bi4
+  rotate: false
+  xy: 875, 1112
+  size: 95, 98
+  orig: 95, 98
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=di
+  rotate: false
+  xy: 1, 1
+  size: 405, 621
+  orig: 405, 621
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=disheng
+  rotate: false
+  xy: 291, 624
+  size: 29, 24
+  orig: 29, 24
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_bg_glow
+  rotate: false
+  xy: 408, 281
+  size: 468, 370
+  orig: 468, 370
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_00
+  rotate: false
+  xy: 431, 1286
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_01
+  rotate: false
+  xy: 431, 1356
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_02
+  rotate: false
+  xy: 419, 1426
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_03
+  rotate: false
+  xy: 419, 1496
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_04
+  rotate: false
+  xy: 419, 1566
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_05
+  rotate: false
+  xy: 419, 1636
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_06
+  rotate: false
+  xy: 760, 763
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_07
+  rotate: false
+  xy: 760, 833
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_08
+  rotate: false
+  xy: 745, 1226
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_09
+  rotate: false
+  xy: 675, 1296
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_10
+  rotate: false
+  xy: 675, 1366
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_11
+  rotate: false
+  xy: 663, 1436
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_12
+  rotate: false
+  xy: 663, 1506
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_13
+  rotate: false
+  xy: 663, 1576
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_btnls_14
+  rotate: false
+  xy: 663, 1646
+  size: 242, 68
+  orig: 242, 68
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_point
+  rotate: false
+  xy: 375, 1682
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_sputtering
+  rotate: false
+  xy: 1, 975
+  size: 428, 403
+  orig: 428, 403
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=eff_star
+  rotate: false
+  xy: 878, 421
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=logo
+  rotate: false
+  xy: 431, 1112
+  size: 442, 112
+  orig: 442, 112
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=ren
+  rotate: false
+  xy: 1, 624
+  size: 288, 349
+  orig: 288, 349
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=renyin
+  rotate: false
+  xy: 760, 653
+  size: 172, 108
+  orig: 172, 108
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=sheng
+  rotate: false
+  xy: 907, 1562
+  size: 33, 49
+  orig: 33, 49
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=tai
+  rotate: false
+  xy: 408, 1
+  size: 593, 278
+  orig: 593, 278
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=xing
+  rotate: false
+  xy: 878, 281
+  size: 131, 138
+  orig: 131, 138
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=xing1
+  rotate: false
+  xy: 907, 1450
+  size: 63, 65
+  orig: 63, 65
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=xing2
+  rotate: false
+  xy: 919, 1383
+  size: 66, 65
+  orig: 66, 65
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=xing3
+  rotate: false
+  xy: 919, 1296
+  size: 86, 85
+  orig: 86, 85
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=yin
+  rotate: false
+  xy: 431, 950
+  size: 494, 160
+  orig: 494, 160
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=zi
+  rotate: false
+  xy: 431, 1226
+  size: 312, 58
+  orig: 312, 58
+  offset: 0, 0
+  index: -1
+spine_xinshouyindao_first_purchase=zi1
+  rotate: false
+  xy: 1, 1682
+  size: 320, 37
+  orig: 320, 37
+  offset: 0, 0
+  index: -1
+

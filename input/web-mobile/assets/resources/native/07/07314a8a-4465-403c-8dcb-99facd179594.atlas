@@ -1,0 +1,181 @@
+spine_avtivity_ads_wheel_icon_0.webp
+size: 216, 363
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_avtivity_ads_wheel_icon=bi1
+  rotate: false
+  xy: 87, 331
+  size: 32, 24
+  orig: 32, 24
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=bi10
+  rotate: false
+  xy: 161, 47
+  size: 33, 27
+  orig: 33, 27
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=bi11
+  rotate: false
+  xy: 1, 300
+  size: 31, 24
+  orig: 31, 24
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=bi12
+  rotate: false
+  xy: 1, 300
+  size: 31, 24
+  orig: 31, 24
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=bi2
+  rotate: false
+  xy: 1, 300
+  size: 31, 24
+  orig: 31, 24
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=bi3
+  rotate: false
+  xy: 196, 61
+  size: 16, 8
+  orig: 16, 8
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=bi4
+  rotate: false
+  xy: 196, 47
+  size: 18, 12
+  orig: 18, 12
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=bi5
+  rotate: false
+  xy: 161, 76
+  size: 29, 30
+  orig: 29, 30
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=bi6
+  rotate: false
+  xy: 1, 300
+  size: 31, 24
+  orig: 31, 24
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=bi7
+  rotate: false
+  xy: 1, 300
+  size: 31, 24
+  orig: 31, 24
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=bi8
+  rotate: false
+  xy: 161, 108
+  size: 29, 30
+  orig: 29, 30
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=bi9
+  rotate: false
+  xy: 1, 300
+  size: 31, 24
+  orig: 31, 24
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=dai
+  rotate: false
+  xy: 89, 1
+  size: 119, 44
+  orig: 119, 44
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=dianshi
+  rotate: false
+  xy: 1, 1
+  size: 86, 84
+  orig: 86, 84
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=eff_ls_00
+  rotate: false
+  xy: 89, 47
+  size: 70, 69
+  orig: 70, 69
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=eff_ls_01
+  rotate: false
+  xy: 1, 87
+  size: 70, 69
+  orig: 70, 69
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=eff_ls_02
+  rotate: false
+  xy: 73, 118
+  size: 70, 69
+  orig: 70, 69
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=eff_ls_03
+  rotate: false
+  xy: 1, 158
+  size: 70, 69
+  orig: 70, 69
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=eff_ls_04
+  rotate: false
+  xy: 145, 140
+  size: 70, 69
+  orig: 70, 69
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=eff_ls_05
+  rotate: false
+  xy: 73, 189
+  size: 70, 69
+  orig: 70, 69
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=eff_ls_06
+  rotate: false
+  xy: 1, 229
+  size: 70, 69
+  orig: 70, 69
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=eff_ls_07
+  rotate: false
+  xy: 145, 211
+  size: 70, 69
+  orig: 70, 69
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=eff_ls_08
+  rotate: false
+  xy: 73, 260
+  size: 70, 69
+  orig: 70, 69
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=eff_ls_09
+  rotate: false
+  xy: 145, 282
+  size: 70, 69
+  orig: 70, 69
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_icon=zi
+  rotate: false
+  xy: 1, 331
+  size: 84, 31
+  orig: 84, 31
+  offset: 0, 0
+  index: -1
+

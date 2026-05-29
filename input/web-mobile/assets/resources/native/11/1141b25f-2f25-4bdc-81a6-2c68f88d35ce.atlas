@@ -1,0 +1,447 @@
+spine_runninglowoncoins_0.webp
+size: 1009, 2051
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_runninglowoncoins=bg2
+  rotate: false
+  xy: 1, 1
+  size: 720, 1218
+  orig: 720, 1218
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=bi1
+  rotate: false
+  xy: 979, 400
+  size: 29, 59
+  orig: 29, 59
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=bi2
+  rotate: false
+  xy: 934, 1954
+  size: 41, 37
+  orig: 41, 37
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=bi3
+  rotate: false
+  xy: 960, 1906
+  size: 33, 45
+  orig: 33, 45
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=bi4
+  rotate: false
+  xy: 680, 1987
+  size: 38, 35
+  orig: 38, 35
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=bi5
+  rotate: false
+  xy: 635, 1969
+  size: 38, 45
+  orig: 38, 45
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=bi6
+  rotate: false
+  xy: 952, 1556
+  size: 43, 60
+  orig: 43, 60
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=bi7
+  rotate: false
+  xy: 955, 1399
+  size: 39, 30
+  orig: 39, 30
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=bi8
+  rotate: false
+  xy: 635, 2016
+  size: 43, 34
+  orig: 43, 34
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=bi9
+  rotate: false
+  xy: 934, 1993
+  size: 41, 35
+  orig: 41, 35
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=bidui
+  rotate: false
+  xy: 1, 1221
+  size: 514, 275
+  orig: 514, 275
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=big_board
+  rotate: false
+  xy: 1, 1852
+  size: 478, 198
+  orig: 478, 198
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=big_line
+  rotate: false
+  xy: 758, 1639
+  size: 194, 6
+  orig: 194, 6
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=eff_point
+  rotate: false
+  xy: 720, 1987
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_balloon1
+  rotate: false
+  xy: 723, 1028
+  size: 166, 156
+  orig: 166, 156
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_balloon2
+  rotate: false
+  xy: 723, 314
+  size: 214, 193
+  orig: 214, 193
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_balloon3
+  rotate: false
+  xy: 351, 1498
+  size: 156, 161
+  orig: 156, 161
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_bizi
+  rotate: false
+  xy: 898, 1821
+  size: 94, 83
+  orig: 94, 83
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_erh
+  rotate: false
+  xy: 591, 1969
+  size: 42, 60
+  orig: 42, 60
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_eye_l
+  rotate: false
+  xy: 977, 1953
+  size: 21, 28
+  orig: 21, 28
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_eye_r
+  rotate: false
+  xy: 978, 803
+  size: 24, 30
+  orig: 24, 30
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_face
+  rotate: false
+  xy: 723, 509
+  size: 205, 181
+  orig: 205, 181
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_foot_l
+  rotate: false
+  xy: 481, 1830
+  size: 107, 155
+  orig: 107, 155
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_foot_r
+  rotate: false
+  xy: 939, 314
+  size: 69, 84
+  orig: 69, 84
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_glasses
+  rotate: false
+  xy: 758, 1556
+  size: 192, 81
+  orig: 192, 81
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_hand_d
+  rotate: false
+  xy: 760, 1772
+  size: 131, 70
+  orig: 131, 70
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_hand_l
+  rotate: false
+  xy: 609, 1660
+  size: 149, 160
+  orig: 149, 160
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_huzi_l
+  rotate: false
+  xy: 898, 1906
+  size: 60, 46
+  orig: 60, 46
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_huzi_r
+  rotate: false
+  xy: 893, 1782
+  size: 91, 37
+  orig: 91, 37
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_leg_l
+  rotate: false
+  xy: 760, 1647
+  size: 142, 123
+  orig: 142, 123
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_leg_r
+  rotate: false
+  xy: 891, 1081
+  size: 116, 133
+  orig: 116, 133
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_maozi_hou
+  rotate: false
+  xy: 351, 1661
+  size: 149, 167
+  orig: 149, 167
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_maozi_qian
+  rotate: false
+  xy: 723, 1
+  size: 283, 311
+  orig: 283, 311
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_meimao_l
+  rotate: false
+  xy: 830, 1186
+  size: 47, 31
+  orig: 47, 31
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_meimao_r
+  rotate: false
+  xy: 955, 1363
+  size: 53, 34
+  orig: 53, 34
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_palm_l
+  rotate: false
+  xy: 904, 1647
+  size: 85, 133
+  orig: 85, 133
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_palm_r
+  rotate: false
+  xy: 930, 509
+  size: 78, 80
+  orig: 78, 80
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_scarf
+  rotate: false
+  xy: 509, 1556
+  size: 247, 102
+  orig: 247, 102
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_shirt
+  rotate: false
+  xy: 697, 1844
+  size: 111, 141
+  orig: 111, 141
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_swallow
+  rotate: false
+  xy: 723, 692
+  size: 204, 160
+  orig: 204, 160
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_waitao_l
+  rotate: false
+  xy: 930, 591
+  size: 70, 103
+  orig: 70, 103
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_waitao_r
+  rotate: false
+  xy: 929, 696
+  size: 68, 72
+  orig: 68, 72
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_wand
+  rotate: false
+  xy: 1, 1498
+  size: 348, 352
+  orig: 348, 352
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_xiahuzi
+  rotate: false
+  xy: 481, 1987
+  size: 108, 63
+  orig: 108, 63
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_yanpi_l
+  rotate: false
+  xy: 986, 1782
+  size: 22, 29
+  orig: 22, 29
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_yanpi_r
+  rotate: false
+  xy: 978, 770
+  size: 24, 31
+  orig: 24, 31
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_js_zui
+  rotate: false
+  xy: 810, 1968
+  size: 122, 60
+  orig: 122, 60
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_niao_cb_l
+  rotate: false
+  xy: 939, 400
+  size: 38, 107
+  orig: 38, 107
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_niao_cb_r
+  rotate: false
+  xy: 810, 1844
+  size: 86, 122
+  orig: 86, 122
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_niao_eye_l
+  rotate: false
+  xy: 996, 1399
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_niao_eye_r
+  rotate: false
+  xy: 979, 461
+  size: 28, 35
+  orig: 28, 35
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_niao_eyes_l
+  rotate: false
+  xy: 929, 845
+  size: 8, 7
+  orig: 8, 7
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_niao_eyes_r
+  rotate: false
+  xy: 351, 1830
+  size: 15, 17
+  orig: 15, 17
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_niao_shenti
+  rotate: false
+  xy: 502, 1661
+  size: 105, 163
+  orig: 105, 163
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_niao_st
+  rotate: false
+  xy: 977, 1983
+  size: 27, 21
+  orig: 27, 21
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_niao_zb
+  rotate: false
+  xy: 929, 770
+  size: 47, 73
+  orig: 47, 73
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_rope
+  rotate: false
+  xy: 590, 1826
+  size: 105, 141
+  orig: 105, 141
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_rope4
+  rotate: false
+  xy: 896, 854
+  size: 85, 225
+  orig: 85, 225
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_rope5
+  rotate: false
+  xy: 723, 854
+  size: 171, 172
+  orig: 171, 172
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=home_rope6
+  rotate: false
+  xy: 955, 1216
+  size: 50, 145
+  orig: 50, 145
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=small_board
+  rotate: false
+  xy: 517, 1431
+  size: 479, 123
+  orig: 479, 123
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=tital
+  rotate: false
+  xy: 517, 1221
+  size: 436, 208
+  orig: 436, 208
+  offset: 0, 0
+  index: -1
+spine_runninglowoncoins=zi
+  rotate: false
+  xy: 723, 1186
+  size: 105, 18
+  orig: 105, 18
+  offset: 0, 0
+  index: -1
+

@@ -1,0 +1,223 @@
+spine_avtivity_ads_wheel_jiangli_0.webp
+size: 995, 1678
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_avtivity_ads_wheel_jiangli=anniu_0000
+  rotate: false
+  xy: 638, 1523
+  size: 312, 86
+  orig: 312, 86
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=anniu_0001
+  rotate: false
+  xy: 323, 1523
+  size: 313, 87
+  orig: 313, 87
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=anniu_0002
+  rotate: false
+  xy: 603, 1
+  size: 320, 97
+  orig: 320, 97
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=anniu_0003
+  rotate: false
+  xy: 603, 100
+  size: 320, 97
+  orig: 320, 97
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=anniu_0004
+  rotate: false
+  xy: 603, 199
+  size: 320, 97
+  orig: 320, 97
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=anniu_0005
+  rotate: false
+  xy: 603, 298
+  size: 320, 97
+  orig: 320, 97
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=anniu_0006
+  rotate: false
+  xy: 603, 397
+  size: 320, 97
+  orig: 320, 97
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=anniu_0007
+  rotate: false
+  xy: 603, 496
+  size: 320, 97
+  orig: 320, 97
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=anniu_0008
+  rotate: false
+  xy: 603, 595
+  size: 320, 97
+  orig: 320, 97
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=anniu_0009
+  rotate: false
+  xy: 1, 1420
+  size: 320, 97
+  orig: 320, 97
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=anniu_0010
+  rotate: false
+  xy: 1, 1519
+  size: 320, 97
+  orig: 320, 97
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=anniu_0011
+  rotate: false
+  xy: 323, 1424
+  size: 320, 97
+  orig: 320, 97
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=anniu_0012
+  rotate: false
+  xy: 645, 1420
+  size: 320, 97
+  orig: 320, 97
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=bi
+  rotate: false
+  xy: 1, 1145
+  size: 503, 238
+  orig: 503, 238
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=biao
+  rotate: false
+  xy: 1, 1063
+  size: 506, 80
+  orig: 506, 80
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=eff_star
+  rotate: false
+  xy: 513, 603
+  size: 81, 81
+  orig: 81, 81
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=guang
+  rotate: false
+  xy: 513, 1013
+  size: 427, 405
+  orig: 427, 405
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=kuang
+  rotate: false
+  xy: 513, 694
+  size: 481, 93
+  orig: 481, 93
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=lizi
+  rotate: false
+  xy: 1, 603
+  size: 510, 458
+  orig: 510, 458
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=text_0001
+  rotate: false
+  xy: 925, 1
+  size: 52, 53
+  orig: 52, 53
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=text_0002
+  rotate: false
+  xy: 335, 1612
+  size: 113, 64
+  orig: 113, 64
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=text_0003
+  rotate: false
+  xy: 450, 1612
+  size: 111, 64
+  orig: 111, 64
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=text_0004
+  rotate: false
+  xy: 1, 1618
+  size: 113, 59
+  orig: 113, 59
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=text_0005
+  rotate: false
+  xy: 670, 1611
+  size: 101, 55
+  orig: 101, 55
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=text_0006
+  rotate: false
+  xy: 223, 1618
+  size: 110, 56
+  orig: 110, 56
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=text_0007
+  rotate: false
+  xy: 116, 1618
+  size: 105, 58
+  orig: 105, 58
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=text_0008
+  rotate: false
+  xy: 563, 1612
+  size: 105, 62
+  orig: 105, 62
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=text_0009
+  rotate: false
+  xy: 773, 1611
+  size: 74, 54
+  orig: 74, 54
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=zi
+  rotate: false
+  xy: 323, 1385
+  size: 142, 37
+  orig: 142, 37
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=zp
+  rotate: false
+  xy: 1, 1
+  size: 600, 600
+  orig: 600, 600
+  offset: 0, 0
+  index: -1
+spine_avtivity_ads_wheel_jiangli=zuan
+  rotate: false
+  xy: 513, 789
+  size: 437, 222
+  orig: 437, 222
+  offset: 0, 0
+  index: -1
+

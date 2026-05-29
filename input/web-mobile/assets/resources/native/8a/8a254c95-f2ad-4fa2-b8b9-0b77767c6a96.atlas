@@ -1,0 +1,125 @@
+spine_activity_invitefriendmilestone_invite_0.webp
+size: 503, 1524
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_activity_invitefriendmilestone_invite=back
+  rotate: false
+  xy: 1, 219
+  size: 487, 805
+  orig: 487, 805
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=bird
+  rotate: false
+  xy: 268, 1299
+  size: 111, 111
+  orig: 111, 111
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=coins_1
+  rotate: false
+  xy: 381, 1316
+  size: 83, 65
+  orig: 83, 65
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=coins_2
+  rotate: false
+  xy: 398, 1252
+  size: 96, 62
+  orig: 96, 62
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=coins_3
+  rotate: false
+  xy: 381, 1383
+  size: 83, 65
+  orig: 83, 65
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=coins_4
+  rotate: false
+  xy: 398, 1186
+  size: 96, 64
+  orig: 96, 64
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=coins_5
+  rotate: false
+  xy: 463, 1026
+  size: 39, 56
+  orig: 39, 56
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=fx_star
+  rotate: false
+  xy: 268, 1169
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=happy
+  rotate: false
+  xy: 381, 1450
+  size: 80, 72
+  orig: 80, 72
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=ins
+  rotate: false
+  xy: 268, 1412
+  size: 111, 111
+  orig: 111, 111
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=kuang
+  rotate: false
+  xy: 1, 1
+  size: 489, 216
+  orig: 489, 216
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=man
+  rotate: false
+  xy: 1, 1186
+  size: 265, 297
+  orig: 265, 297
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=mojing
+  rotate: false
+  xy: 425, 1143
+  size: 71, 41
+  orig: 71, 41
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=star
+  rotate: false
+  xy: 463, 1105
+  size: 15, 22
+  orig: 15, 22
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=title
+  rotate: false
+  xy: 1, 1026
+  size: 460, 115
+  orig: 460, 115
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=word
+  rotate: false
+  xy: 1, 1143
+  size: 422, 24
+  orig: 422, 24
+  offset: 0, 0
+  index: -1
+spine_activity_invitefriendmilestone_invite=zui
+  rotate: false
+  xy: 463, 1084
+  size: 27, 19
+  orig: 27, 19
+  offset: 0, 0
+  index: -1
+

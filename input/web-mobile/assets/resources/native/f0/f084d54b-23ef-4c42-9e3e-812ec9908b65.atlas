@@ -1,0 +1,251 @@
+spine_videoplay_0.webp
+size: 484, 2520
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_videoplay=bgdark
+  rotate: false
+  xy: 1, 1
+  size: 324, 324
+  orig: 324, 324
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_00
+  rotate: false
+  xy: 327, 1
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_01
+  rotate: false
+  xy: 327, 211
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_02
+  rotate: false
+  xy: 1, 327
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_03
+  rotate: false
+  xy: 159, 327
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_04
+  rotate: false
+  xy: 317, 421
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_05
+  rotate: false
+  xy: 1, 537
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_06
+  rotate: false
+  xy: 159, 537
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_07
+  rotate: false
+  xy: 317, 631
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_08
+  rotate: false
+  xy: 1, 747
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_09
+  rotate: false
+  xy: 159, 747
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_10
+  rotate: false
+  xy: 317, 841
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_11
+  rotate: false
+  xy: 1, 957
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_15
+  rotate: false
+  xy: 159, 957
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_16
+  rotate: false
+  xy: 317, 1051
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_17
+  rotate: false
+  xy: 1, 1167
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_18
+  rotate: false
+  xy: 159, 1167
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_19
+  rotate: false
+  xy: 317, 1261
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_20
+  rotate: false
+  xy: 1, 1377
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_21
+  rotate: false
+  xy: 159, 1377
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_27
+  rotate: false
+  xy: 317, 1471
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_28
+  rotate: false
+  xy: 1, 1587
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_29
+  rotate: false
+  xy: 159, 1587
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_30
+  rotate: false
+  xy: 317, 1681
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_31
+  rotate: false
+  xy: 1, 1797
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_32
+  rotate: false
+  xy: 159, 1797
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_33
+  rotate: false
+  xy: 317, 1891
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_34
+  rotate: false
+  xy: 1, 2007
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_35
+  rotate: false
+  xy: 159, 2007
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_36
+  rotate: false
+  xy: 317, 2101
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_37
+  rotate: false
+  xy: 1, 2217
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_38
+  rotate: false
+  xy: 159, 2217
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=lock_39
+  rotate: false
+  xy: 317, 2311
+  size: 156, 208
+  orig: 156, 208
+  offset: 0, 0
+  index: -1
+spine_videoplay=videoplay
+  rotate: false
+  xy: 102, 2427
+  size: 98, 90
+  orig: 98, 90
+  offset: 0, 0
+  index: -1
+spine_videoplay=videoplaylight
+  rotate: false
+  xy: 1, 2427
+  size: 99, 91
+  orig: 99, 91
+  offset: 0, 0
+  index: -1
+

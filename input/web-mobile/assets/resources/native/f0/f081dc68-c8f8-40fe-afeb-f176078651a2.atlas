@@ -1,0 +1,20 @@
+spine_cashclub_point_get_0.webp
+size: 402, 538
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_cashclub_point_get=eff_sputtering
+  rotate: false
+  xy: 1, 1
+  size: 400, 400
+  orig: 400, 400
+  offset: 0, 0
+  index: -1
+spine_cashclub_point_get=huangguan
+  rotate: false
+  xy: 1, 403
+  size: 175, 134
+  orig: 175, 134
+  offset: 0, 0
+  index: -1
+

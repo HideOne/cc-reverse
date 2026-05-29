@@ -1,0 +1,251 @@
+spine_freecoins_feiji_0.webp
+size: 511, 1302
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_freecoins_feiji=coin1
+  rotate: false
+  xy: 486, 34
+  size: 23, 27
+  orig: 23, 27
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=coin2
+  rotate: false
+  xy: 486, 63
+  size: 19, 27
+  orig: 19, 27
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=coin3
+  rotate: false
+  xy: 486, 1
+  size: 23, 31
+  orig: 23, 31
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=gift1
+  rotate: false
+  xy: 151, 1100
+  size: 76, 95
+  orig: 76, 95
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=gift2
+  rotate: false
+  xy: 396, 208
+  size: 114, 142
+  orig: 114, 142
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=gift3
+  rotate: false
+  xy: 214, 852
+  size: 52, 64
+  orig: 52, 64
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=glow1
+  rotate: false
+  xy: 1, 708
+  size: 211, 209
+  orig: 211, 209
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=glowch1
+  rotate: false
+  xy: 1, 286
+  size: 346, 231
+  orig: 346, 231
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=glowch2
+  rotate: false
+  xy: 1, 519
+  size: 273, 187
+  orig: 273, 187
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line10
+  rotate: false
+  xy: 349, 352
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line12
+  rotate: false
+  xy: 349, 448
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line14
+  rotate: false
+  xy: 349, 544
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line16
+  rotate: false
+  xy: 274, 718
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line18
+  rotate: false
+  xy: 273, 814
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line20
+  rotate: false
+  xy: 268, 910
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line22
+  rotate: false
+  xy: 1, 919
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line24
+  rotate: false
+  xy: 1, 1015
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line26
+  rotate: false
+  xy: 230, 1006
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line28
+  rotate: false
+  xy: 1, 1111
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line30
+  rotate: false
+  xy: 1, 1207
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line32
+  rotate: false
+  xy: 229, 1102
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line34
+  rotate: false
+  xy: 151, 1198
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=line36
+  rotate: false
+  xy: 301, 1198
+  size: 148, 94
+  orig: 148, 94
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=plane
+  rotate: false
+  xy: 1, 1
+  size: 483, 205
+  orig: 483, 205
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=plane2
+  rotate: false
+  xy: 276, 640
+  size: 221, 76
+  orig: 221, 76
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=planee1
+  rotate: false
+  xy: 214, 708
+  size: 58, 75
+  orig: 58, 75
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=planee2
+  rotate: false
+  xy: 151, 999
+  size: 77, 99
+  orig: 77, 99
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=planee3
+  rotate: false
+  xy: 380, 1072
+  size: 74, 88
+  orig: 74, 88
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=planee4
+  rotate: false
+  xy: 214, 785
+  size: 57, 65
+  orig: 57, 65
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=planee5
+  rotate: false
+  xy: 276, 519
+  size: 71, 35
+  orig: 71, 35
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=planee6
+  rotate: false
+  xy: 276, 556
+  size: 63, 64
+  orig: 63, 64
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=planee7
+  rotate: false
+  xy: 424, 718
+  size: 84, 273
+  orig: 84, 273
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=qiu1
+  rotate: false
+  xy: 151, 919
+  size: 78, 78
+  orig: 78, 78
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=qiu2
+  rotate: false
+  xy: 418, 993
+  size: 81, 77
+  orig: 81, 77
+  offset: 0, 0
+  index: -1
+spine_freecoins_feiji=ziti
+  rotate: false
+  xy: 1, 208
+  size: 393, 76
+  orig: 393, 76
+  offset: 0, 0
+  index: -1
+

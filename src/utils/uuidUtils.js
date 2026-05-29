@@ -33,13 +33,6 @@ const uuidUtils = {
         return stringRandom(22);
     },
 
-    /**
-     * 将 Base64 编码的 UUID 转换为标准 UUID 格式
-     * 示例: fcmR3XADNLgJ1ByKhqcC5Z -> fc991dd7-0033-4b80-9d41-c8a86a702e59
-     * 
-     * @param {string} base64 Base64 编码的 UUID
-     * @returns {string} 标准格式的 UUID
-     */
     decodeUuid(base64) {
         // 参数检查
         if (typeof base64 !== "string") {
@@ -74,6 +67,21 @@ const uuidUtils = {
             console.error("解码 UUID 时出错:", err);
             return base64; // 出错时返回原始值
         }
+    },
+
+    /**
+     * Decode cc._RF script id (23-char) or compressed asset uuid (22-char).
+     */
+    decodeScriptRfUuid(rfId) {
+        if (typeof rfId !== 'string' || !rfId) return rfId;
+        if (/^[0-9a-f]{8}-[0-9a-f]{4}-/i.test(rfId)) return rfId;
+        if (rfId.length === 23) {
+            return this.decodeUuid(this.original_uuid(rfId));
+        }
+        if (rfId.length === 22) {
+            return this.decodeUuid(rfId);
+        }
+        return rfId;
     },
     
     /**

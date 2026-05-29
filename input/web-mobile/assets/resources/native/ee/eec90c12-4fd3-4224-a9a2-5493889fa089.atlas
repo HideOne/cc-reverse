@@ -1,0 +1,181 @@
+spine_freecoins_change_0.webp
+size: 670, 929
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_freecoins_change=1
+  rotate: false
+  xy: 263, 1
+  size: 192, 183
+  orig: 192, 183
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=11
+  rotate: false
+  xy: 457, 1
+  size: 199, 169
+  orig: 199, 169
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=2
+  rotate: false
+  xy: 437, 477
+  size: 124, 121
+  orig: 124, 121
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=22
+  rotate: false
+  xy: 518, 764
+  size: 121, 125
+  orig: 121, 125
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=3
+  rotate: false
+  xy: 1, 786
+  size: 130, 124
+  orig: 130, 124
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=33
+  rotate: false
+  xy: 311, 350
+  size: 127, 124
+  orig: 127, 124
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=jin
+  rotate: false
+  xy: 1, 1
+  size: 260, 263
+  orig: 260, 263
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=jin1
+  rotate: false
+  xy: 1, 266
+  size: 188, 188
+  orig: 188, 188
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=jin2
+  rotate: false
+  xy: 311, 476
+  size: 124, 124
+  orig: 124, 124
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=jin3
+  rotate: false
+  xy: 1, 629
+  size: 155, 155
+  orig: 155, 155
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=jin4
+  rotate: false
+  xy: 566, 336
+  size: 102, 102
+  orig: 102, 102
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=jin5
+  rotate: false
+  xy: 440, 350
+  size: 124, 125
+  orig: 124, 125
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=mohu
+  rotate: false
+  xy: 1, 456
+  size: 171, 171
+  orig: 171, 171
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=sw00
+  rotate: false
+  xy: 191, 266
+  size: 118, 162
+  orig: 118, 162
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=sw02
+  rotate: false
+  xy: 311, 186
+  size: 118, 162
+  orig: 118, 162
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=sw04
+  rotate: false
+  xy: 431, 186
+  size: 118, 162
+  orig: 118, 162
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=sw06
+  rotate: false
+  xy: 551, 172
+  size: 118, 162
+  orig: 118, 162
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=sw08
+  rotate: false
+  xy: 191, 430
+  size: 118, 162
+  orig: 118, 162
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=sw12
+  rotate: false
+  xy: 158, 629
+  size: 118, 162
+  orig: 118, 162
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=sw16
+  rotate: false
+  xy: 278, 602
+  size: 118, 162
+  orig: 118, 162
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=sw20
+  rotate: false
+  xy: 278, 766
+  size: 118, 162
+  orig: 118, 162
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=sw24
+  rotate: false
+  xy: 398, 602
+  size: 118, 162
+  orig: 118, 162
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=sw28
+  rotate: false
+  xy: 398, 766
+  size: 118, 162
+  orig: 118, 162
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=sw32
+  rotate: false
+  xy: 518, 600
+  size: 118, 162
+  orig: 118, 162
+  offset: 0, 0
+  index: -1
+spine_freecoins_change=zp
+  rotate: false
+  xy: 133, 793
+  size: 122, 123
+  orig: 122, 123
+  offset: 0, 0
+  index: -1
+

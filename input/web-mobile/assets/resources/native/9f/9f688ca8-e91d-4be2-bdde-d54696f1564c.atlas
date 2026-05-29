@@ -1,0 +1,174 @@
+spine_frames_newget_0.webp
+size: 1008, 694
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_frames_newget=bg1
+  rotate: false
+  xy: 540, 1
+  size: 445, 233
+  orig: 445, 233
+  offset: 0, 0
+  index: -1
+spine_frames_newget=bg2
+  rotate: false
+  xy: 1, 1
+  size: 537, 366
+  orig: 537, 366
+  offset: 0, 0
+  index: -1
+spine_frames_newget=bgeff1
+  rotate: false
+  xy: 253, 369
+  size: 485, 239
+  orig: 485, 239
+  offset: 0, 0
+  index: -1
+spine_frames_newget=dai1
+  rotate: false
+  xy: 929, 513
+  size: 58, 48
+  orig: 58, 48
+  offset: 0, 0
+  index: -1
+spine_frames_newget=dai2
+  rotate: false
+  xy: 824, 568
+  size: 75, 36
+  orig: 75, 36
+  offset: 0, 0
+  index: -1
+spine_frames_newget=dai3
+  rotate: false
+  xy: 540, 292
+  size: 112, 61
+  orig: 112, 61
+  offset: 0, 0
+  index: -1
+spine_frames_newget=dai4
+  rotate: false
+  xy: 353, 666
+  size: 32, 26
+  orig: 32, 26
+  offset: 0, 0
+  index: -1
+spine_frames_newget=dai5
+  rotate: false
+  xy: 943, 348
+  size: 64, 53
+  orig: 64, 53
+  offset: 0, 0
+  index: -1
+spine_frames_newget=eff_rays
+  rotate: false
+  xy: 1, 369
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+spine_frames_newget=eff_titlels_00
+  rotate: false
+  xy: 654, 291
+  size: 83, 52
+  orig: 83, 52
+  offset: 0, 0
+  index: -1
+spine_frames_newget=eff_titlels_01
+  rotate: false
+  xy: 824, 458
+  size: 132, 53
+  orig: 132, 53
+  offset: 0, 0
+  index: -1
+spine_frames_newget=eff_titlels_02
+  rotate: false
+  xy: 540, 236
+  size: 192, 53
+  orig: 192, 53
+  offset: 0, 0
+  index: -1
+spine_frames_newget=eff_titlels_03
+  rotate: false
+  xy: 739, 292
+  size: 245, 54
+  orig: 245, 54
+  offset: 0, 0
+  index: -1
+spine_frames_newget=eff_titlels_04
+  rotate: false
+  xy: 672, 610
+  size: 299, 54
+  orig: 299, 54
+  offset: 0, 0
+  index: -1
+spine_frames_newget=eff_titlels_05
+  rotate: false
+  xy: 353, 610
+  size: 317, 54
+  orig: 317, 54
+  offset: 0, 0
+  index: -1
+spine_frames_newget=eff_titlels_06
+  rotate: false
+  xy: 740, 236
+  size: 264, 54
+  orig: 264, 54
+  offset: 0, 0
+  index: -1
+spine_frames_newget=eff_titlels_07
+  rotate: false
+  xy: 740, 348
+  size: 201, 53
+  orig: 201, 53
+  offset: 0, 0
+  index: -1
+spine_frames_newget=eff_titlels_08
+  rotate: false
+  xy: 824, 403
+  size: 160, 53
+  orig: 160, 53
+  offset: 0, 0
+  index: -1
+spine_frames_newget=eff_titlels_09
+  rotate: false
+  xy: 824, 513
+  size: 103, 53
+  orig: 103, 53
+  offset: 0, 0
+  index: -1
+spine_frames_newget=star
+  rotate: false
+  xy: 958, 458
+  size: 39, 40
+  orig: 39, 40
+  offset: 0, 0
+  index: -1
+spine_frames_newget=star1
+  rotate: false
+  xy: 740, 403
+  size: 82, 99
+  orig: 82, 99
+  offset: 0, 0
+  index: -1
+spine_frames_newget=star2
+  rotate: false
+  xy: 740, 504
+  size: 82, 99
+  orig: 82, 99
+  offset: 0, 0
+  index: -1
+spine_frames_newget=t1
+  rotate: false
+  xy: 387, 666
+  size: 339, 23
+  orig: 339, 23
+  offset: 0, 0
+  index: -1
+spine_frames_newget=title
+  rotate: false
+  xy: 1, 621
+  size: 350, 72
+  orig: 350, 72
+  offset: 0, 0
+  index: -1
+

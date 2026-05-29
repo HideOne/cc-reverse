@@ -1,0 +1,13 @@
+spine_scratchcards_finger_0.webp
+size: 76, 66
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_scratchcards_finger=1
+  rotate: false
+  xy: 1, 1
+  size: 74, 64
+  orig: 74, 64
+  offset: 0, 0
+  index: -1
+

@@ -1,0 +1,503 @@
+spine_forestman_scatter_0.webp
+size: 508, 832
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_forestman_scatter=antle_l1
+  rotate: false
+  xy: 211, 730
+  size: 61, 98
+  orig: 61, 98
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=antle_r1
+  rotate: false
+  xy: 387, 538
+  size: 99, 68
+  orig: 99, 68
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=ball
+  rotate: false
+  xy: 480, 728
+  size: 26, 27
+  orig: 26, 27
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_01
+  rotate: false
+  xy: 474, 712
+  size: 31, 14
+  orig: 31, 14
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_02
+  rotate: false
+  xy: 484, 441
+  size: 23, 31
+  orig: 23, 31
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_03
+  rotate: false
+  xy: 1, 813
+  size: 41, 18
+  orig: 41, 18
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_04
+  rotate: false
+  xy: 478, 405
+  size: 16, 34
+  orig: 16, 34
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_06
+  rotate: false
+  xy: 442, 730
+  size: 36, 27
+  orig: 36, 27
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_07
+  rotate: false
+  xy: 151, 795
+  size: 39, 36
+  orig: 39, 36
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_08
+  rotate: false
+  xy: 442, 687
+  size: 30, 41
+  orig: 30, 41
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_10
+  rotate: false
+  xy: 484, 319
+  size: 23, 37
+  orig: 23, 37
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_12
+  rotate: false
+  xy: 480, 660
+  size: 27, 38
+  orig: 27, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_15
+  rotate: false
+  xy: 488, 520
+  size: 19, 33
+  orig: 19, 33
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_16
+  rotate: false
+  xy: 192, 795
+  size: 12, 33
+  orig: 12, 33
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_17
+  rotate: false
+  xy: 274, 818
+  size: 29, 13
+  orig: 29, 13
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_18
+  rotate: false
+  xy: 326, 759
+  size: 13, 45
+  orig: 13, 45
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard1_19
+  rotate: false
+  xy: 484, 474
+  size: 22, 44
+  orig: 22, 44
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_01
+  rotate: false
+  xy: 443, 759
+  size: 24, 40
+  orig: 24, 40
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_02
+  rotate: false
+  xy: 487, 120
+  size: 19, 47
+  orig: 19, 47
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_03
+  rotate: false
+  xy: 274, 759
+  size: 50, 28
+  orig: 50, 28
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_04
+  rotate: false
+  xy: 482, 217
+  size: 24, 47
+  orig: 24, 47
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_05
+  rotate: false
+  xy: 487, 71
+  size: 20, 47
+  orig: 20, 47
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_06
+  rotate: false
+  xy: 341, 787
+  size: 45, 22
+  orig: 45, 22
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_07
+  rotate: false
+  xy: 357, 761
+  size: 48, 24
+  orig: 48, 24
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_08
+  rotate: false
+  xy: 432, 801
+  size: 30, 22
+  orig: 30, 22
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_09
+  rotate: false
+  xy: 76, 813
+  size: 42, 14
+  orig: 42, 14
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_10
+  rotate: false
+  xy: 151, 765
+  size: 54, 28
+  orig: 54, 28
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_11
+  rotate: false
+  xy: 274, 789
+  size: 48, 27
+  orig: 48, 27
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_12
+  rotate: false
+  xy: 388, 799
+  size: 42, 22
+  orig: 42, 22
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_13
+  rotate: false
+  xy: 232, 325
+  size: 50, 16
+  orig: 50, 16
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_14
+  rotate: false
+  xy: 488, 555
+  size: 16, 45
+  orig: 16, 45
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_15
+  rotate: false
+  xy: 482, 266
+  size: 15, 51
+  orig: 15, 51
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_16
+  rotate: false
+  xy: 341, 730
+  size: 14, 54
+  orig: 14, 54
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard2_17
+  rotate: false
+  xy: 232, 492
+  size: 153, 86
+  orig: 153, 86
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=beard_yz
+  rotate: false
+  xy: 357, 608
+  size: 88, 77
+  orig: 88, 77
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=brow2_l
+  rotate: false
+  xy: 469, 787
+  size: 34, 26
+  orig: 34, 26
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=brow2_r
+  rotate: false
+  xy: 407, 761
+  size: 34, 36
+  orig: 34, 36
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=brow_l1
+  rotate: false
+  xy: 380, 441
+  size: 5, 13
+  orig: 5, 13
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=brow_l2
+  rotate: false
+  xy: 357, 596
+  size: 23, 8
+  orig: 23, 8
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=brow_l3
+  rotate: false
+  xy: 474, 700
+  size: 33, 10
+  orig: 33, 10
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=brow_l4
+  rotate: false
+  xy: 305, 823
+  size: 20, 8
+  orig: 20, 8
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=brow_r1
+  rotate: false
+  xy: 388, 787
+  size: 16, 6
+  orig: 16, 6
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=brow_r2
+  rotate: false
+  xy: 120, 822
+  size: 22, 7
+  orig: 22, 7
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=brow_r3
+  rotate: false
+  xy: 447, 673
+  size: 31, 8
+  orig: 31, 8
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=brow_r4
+  rotate: false
+  xy: 211, 555
+  size: 19, 5
+  orig: 19, 5
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=brow_r5
+  rotate: false
+  xy: 120, 813
+  size: 26, 7
+  orig: 26, 7
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=eff_ball
+  rotate: false
+  xy: 315, 1
+  size: 170, 169
+  orig: 170, 169
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=eyeball_l
+  rotate: false
+  xy: 359, 811
+  size: 9, 8
+  orig: 9, 8
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=eyeball_r
+  rotate: false
+  xy: 211, 562
+  size: 9, 9
+  orig: 9, 9
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=eyewhite_l
+  rotate: false
+  xy: 44, 813
+  size: 30, 18
+  orig: 30, 18
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=eyewhite_r
+  rotate: false
+  xy: 327, 811
+  size: 30, 19
+  orig: 30, 19
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=face
+  rotate: false
+  xy: 357, 687
+  size: 83, 72
+  orig: 83, 72
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=finger_l1
+  rotate: false
+  xy: 478, 358
+  size: 26, 45
+  orig: 26, 45
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=finger_l2
+  rotate: false
+  xy: 274, 730
+  size: 65, 27
+  orig: 65, 27
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=finger_l3
+  rotate: false
+  xy: 487, 1
+  size: 20, 68
+  orig: 20, 68
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=finger_l4
+  rotate: false
+  xy: 488, 169
+  size: 19, 46
+  orig: 19, 46
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=finger_l5
+  rotate: false
+  xy: 82, 765
+  size: 67, 46
+  orig: 67, 46
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=frame
+  rotate: false
+  xy: 315, 172
+  size: 165, 169
+  orig: 165, 169
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=gd
+  rotate: false
+  xy: 211, 580
+  size: 144, 148
+  orig: 144, 148
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=gy
+  rotate: false
+  xy: 1, 1
+  size: 312, 322
+  orig: 312, 322
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=ks
+  rotate: false
+  xy: 1, 325
+  size: 229, 228
+  orig: 229, 228
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=leaf2
+  rotate: false
+  xy: 387, 441
+  size: 95, 95
+  orig: 95, 95
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=lizi
+  rotate: false
+  xy: 380, 343
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=mouth
+  rotate: false
+  xy: 1, 765
+  size: 79, 46
+  orig: 79, 46
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=mouth2
+  rotate: false
+  xy: 469, 759
+  size: 35, 26
+  orig: 35, 26
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=nose
+  rotate: false
+  xy: 479, 608
+  size: 28, 50
+  orig: 28, 50
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=quan
+  rotate: false
+  xy: 1, 555
+  size: 208, 208
+  orig: 208, 208
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=r
+  rotate: false
+  xy: 232, 343
+  size: 146, 147
+  orig: 146, 147
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=ye
+  rotate: false
+  xy: 447, 608
+  size: 30, 63
+  orig: 30, 63
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=yp_l
+  rotate: false
+  xy: 284, 325
+  size: 22, 14
+  orig: 22, 14
+  offset: 0, 0
+  index: -1
+spine_forestman_scatter=yp_r
+  rotate: false
+  xy: 357, 580
+  size: 23, 14
+  orig: 23, 14
+  offset: 0, 0
+  index: -1
+

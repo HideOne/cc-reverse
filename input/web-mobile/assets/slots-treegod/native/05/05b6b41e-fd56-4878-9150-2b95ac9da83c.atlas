@@ -1,0 +1,356 @@
+spine_forestman_superfreespin_0.webp
+size: 512, 2749
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_forestman_superfreespin=ball1
+  rotate: false
+  xy: 413, 277
+  size: 46, 46
+  orig: 46, 46
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light00
+  rotate: false
+  xy: 54, 2697
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light01
+  rotate: false
+  xy: 461, 277
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light02
+  rotate: false
+  xy: 467, 2538
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light03
+  rotate: false
+  xy: 93, 2697
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light04
+  rotate: false
+  xy: 132, 2697
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light05
+  rotate: false
+  xy: 171, 2697
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light06
+  rotate: false
+  xy: 378, 2597
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light07
+  rotate: false
+  xy: 378, 2637
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light08
+  rotate: false
+  xy: 378, 2677
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light09
+  rotate: false
+  xy: 467, 2294
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light10
+  rotate: false
+  xy: 467, 2334
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light11
+  rotate: false
+  xy: 467, 2374
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light12
+  rotate: false
+  xy: 417, 2590
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light13
+  rotate: false
+  xy: 417, 2630
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light14
+  rotate: false
+  xy: 417, 2670
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light15
+  rotate: false
+  xy: 417, 2710
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light16
+  rotate: false
+  xy: 467, 2578
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light17
+  rotate: false
+  xy: 456, 2618
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light18
+  rotate: false
+  xy: 456, 2658
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ball_light19
+  rotate: false
+  xy: 456, 2698
+  size: 37, 38
+  orig: 37, 38
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_00
+  rotate: false
+  xy: 1, 325
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_01
+  rotate: false
+  xy: 257, 325
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_02
+  rotate: false
+  xy: 1, 563
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_03
+  rotate: false
+  xy: 257, 563
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_04
+  rotate: false
+  xy: 1, 801
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_05
+  rotate: false
+  xy: 257, 801
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_06
+  rotate: false
+  xy: 1, 1039
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_07
+  rotate: false
+  xy: 257, 1039
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_08
+  rotate: false
+  xy: 1, 1277
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_09
+  rotate: false
+  xy: 257, 1277
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_10
+  rotate: false
+  xy: 1, 1515
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_11
+  rotate: false
+  xy: 257, 1515
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_12
+  rotate: false
+  xy: 1, 1753
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_13
+  rotate: false
+  xy: 257, 1753
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_14
+  rotate: false
+  xy: 1, 1991
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_15
+  rotate: false
+  xy: 257, 1991
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_bao_16
+  rotate: false
+  xy: 1, 2229
+  size: 254, 236
+  orig: 254, 236
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_fayin
+  rotate: false
+  xy: 414, 2538
+  size: 51, 50
+  orig: 51, 50
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=eff_p
+  rotate: false
+  xy: 257, 2439
+  size: 155, 156
+  orig: 155, 156
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=frame
+  rotate: false
+  xy: 315, 179
+  size: 96, 106
+  orig: 96, 106
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=gd
+  rotate: false
+  xy: 232, 2597
+  size: 144, 148
+  orig: 144, 148
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=glow
+  rotate: false
+  xy: 315, 1
+  size: 173, 176
+  orig: 173, 176
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=gy
+  rotate: false
+  xy: 1, 1
+  size: 312, 322
+  orig: 312, 322
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ks
+  rotate: false
+  xy: 1, 2467
+  size: 229, 228
+  orig: 229, 228
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=lihgt1
+  rotate: false
+  xy: 414, 2439
+  size: 97, 97
+  orig: 97, 97
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=lizi
+  rotate: false
+  xy: 413, 179
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=quan
+  rotate: false
+  xy: 257, 2229
+  size: 208, 208
+  orig: 208, 208
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=r
+  rotate: false
+  xy: 1, 2697
+  size: 51, 51
+  orig: 51, 51
+  offset: 0, 0
+  index: -1
+spine_forestman_superfreespin=ye
+  rotate: false
+  xy: 467, 2229
+  size: 30, 63
+  orig: 30, 63
+  offset: 0, 0
+  index: -1
+

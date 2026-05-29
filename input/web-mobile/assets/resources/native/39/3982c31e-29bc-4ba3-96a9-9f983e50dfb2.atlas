@@ -1,0 +1,83 @@
+spine_continuespinning_window_0.webp
+size: 433, 868
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_continuespinning_window=ban
+  rotate: false
+  xy: 1, 1
+  size: 431, 300
+  orig: 431, 300
+  offset: 0, 0
+  index: -1
+spine_continuespinning_window=bi
+  rotate: false
+  xy: 1, 585
+  size: 233, 79
+  orig: 233, 79
+  offset: 0, 0
+  index: -1
+spine_continuespinning_window=bi1
+  rotate: false
+  xy: 236, 585
+  size: 84, 76
+  orig: 84, 76
+  offset: 0, 0
+  index: -1
+spine_continuespinning_window=bi2
+  rotate: false
+  xy: 322, 539
+  size: 58, 57
+  orig: 58, 57
+  offset: 0, 0
+  index: -1
+spine_continuespinning_window=bi3
+  rotate: false
+  xy: 320, 663
+  size: 82, 73
+  orig: 82, 73
+  offset: 0, 0
+  index: -1
+spine_continuespinning_window=biao
+  rotate: false
+  xy: 1, 745
+  size: 416, 54
+  orig: 416, 54
+  offset: 0, 0
+  index: -1
+spine_continuespinning_window=dian1
+  rotate: false
+  xy: 254, 433
+  size: 102, 104
+  orig: 102, 104
+  offset: 0, 0
+  index: -1
+spine_continuespinning_window=eff_star
+  rotate: false
+  xy: 254, 303
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+spine_continuespinning_window=kuang
+  rotate: false
+  xy: 1, 801
+  size: 283, 66
+  orig: 283, 66
+  offset: 0, 0
+  index: -1
+spine_continuespinning_window=ren
+  rotate: false
+  xy: 1, 303
+  size: 251, 280
+  orig: 251, 280
+  offset: 0, 0
+  index: -1
+spine_continuespinning_window=zi
+  rotate: false
+  xy: 1, 666
+  size: 317, 77
+  orig: 317, 77
+  offset: 0, 0
+  index: -1
+

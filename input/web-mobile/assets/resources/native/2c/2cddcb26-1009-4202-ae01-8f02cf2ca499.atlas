@@ -1,0 +1,174 @@
+spine_bigwinwheel_jpwin_0.webp
+size: 624, 1870
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_bigwinwheel_jpwin=d
+  rotate: false
+  xy: 1, 1
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=da
+  rotate: false
+  xy: 35, 1
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=gy
+  rotate: false
+  xy: 69, 1
+  size: 477, 46
+  orig: 477, 46
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=k
+  rotate: false
+  xy: 1, 49
+  size: 527, 60
+  orig: 527, 60
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep00
+  rotate: false
+  xy: 1, 111
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep01
+  rotate: false
+  xy: 1, 287
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep02
+  rotate: false
+  xy: 1, 463
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep03
+  rotate: false
+  xy: 1, 639
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep04
+  rotate: false
+  xy: 1, 815
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep05
+  rotate: false
+  xy: 1, 991
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep06
+  rotate: false
+  xy: 1, 1167
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep07
+  rotate: false
+  xy: 1, 1343
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep08
+  rotate: false
+  xy: 1, 1519
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep09
+  rotate: false
+  xy: 1, 1695
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep10
+  rotate: false
+  xy: 1, 111
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep11
+  rotate: false
+  xy: 1, 287
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep12
+  rotate: false
+  xy: 1, 463
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep13
+  rotate: false
+  xy: 1, 639
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep14
+  rotate: false
+  xy: 1, 815
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep15
+  rotate: false
+  xy: 1, 991
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep16
+  rotate: false
+  xy: 1, 1167
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep17
+  rotate: false
+  xy: 1, 1343
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep18
+  rotate: false
+  xy: 1, 1519
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+spine_bigwinwheel_jpwin=sweep19
+  rotate: false
+  xy: 1, 1695
+  size: 622, 174
+  orig: 622, 174
+  offset: 0, 0
+  index: -1
+

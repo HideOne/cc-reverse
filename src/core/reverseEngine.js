@@ -13,6 +13,8 @@ const { logger } = require('../utils/logger');
 const { loadConfig } = require('../config/configLoader');
 const { decryptProject, scanJscFiles, extractKeyFromProject } = require('./jscDecryptor');
 const { reverseProject3x } = require('./cocos3x/engine3x');
+const { findBundleConfigPath } = require('./cocos3x/bundleConfig');
+const { convertAstcToWebp } = require('./astcConverter');
 
 // 将异步文件操作转为 Promise
 const readFile = promisify(fs.readFile);
@@ -38,10 +40,14 @@ async function reverseProject(options) {
     bundle,
     assetsOnly = false,
     scriptsOnly = false,
+    skipAstcConvert = false,
   } = options;
 
   // 全局配置初始化
   global.config = loadConfig();
+  if (skipAstcConvert) {
+    global.config.assets = { ...global.config.assets, convertAstcToWebp: false };
+  }
   global.verbose = verbose;
 
   // 检测Cocos Creator版本并设置相应的文件路径
@@ -52,7 +58,7 @@ async function reverseProject(options) {
   // to validate — dispatch early.
   if (projectInfo.version === '3.x') {
     global.paths = { source: sourcePath, output: outputPath };
-    return reverseProject3x({
+    const result = await reverseProject3x({
       sourcePath,
       outputPath,
       bundleFilter: Array.isArray(bundle) ? bundle : (bundle ? [bundle] : []),
@@ -61,6 +67,8 @@ async function reverseProject(options) {
       key: key || global.config.decrypt?.key,
       verbose,
     });
+    await runAstcPostProcess(outputPath, { scriptsOnly, verbose });
+    return result;
   }
 
   // 检查文件是否存在 (2.x pipeline)
@@ -131,7 +139,9 @@ async function reverseProject(options) {
     if (!verbose) {
       await fileManager.cleanDirectory(tempPath);
     }
-    
+
+    await runAstcPostProcess(outputPath, { scriptsOnly, verbose });
+
     return true;
   } catch (err) {
     logger.error('处理项目文件时出错:', err);
@@ -202,6 +212,32 @@ function detectProjectVersion(sourcePath, versionHint) {
     return null;
   }
 
+  // Helper: any bundle config whose scenes map to .fire (2.4.x convention).
+  function bundleConfigsHaveFireScenes(assetsDir) {
+    if (!fs.existsSync(assetsDir)) return false;
+    try {
+      for (const e of fs.readdirSync(assetsDir, { withFileTypes: true })) {
+        if (!e.isDirectory()) continue;
+        const cfgPath = findBundleConfigPath(path.join(assetsDir, e.name));
+        if (!cfgPath) continue;
+        const cfg = JSON.parse(fs.readFileSync(cfgPath, 'utf-8'));
+        if (Object.keys(cfg.scenes || {}).some((k) => k.endsWith('.fire'))) return true;
+      }
+    } catch {
+      // ignore
+    }
+    return false;
+  }
+
+  // 2.4.x bundle / JSB build — assets/<bundle>/config.json + .fire scenes.
+  function is24xBundleRoot(root) {
+    if (fs.existsSync(path.join(root, 'jsb-adapter'))) return true;
+    if (fs.existsSync(path.join(root, 'main.jsc'))) return true;
+    if (fs.existsSync(path.join(root, 'src', 'settings.jsc'))) return true;
+    if (fs.existsSync(path.join(root, 'src', 'cocos2d-jsb.jsc'))) return true;
+    return bundleConfigsHaveFireScenes(path.join(root, 'assets'));
+  }
+
   // Helper: check if a given directory looks like a Cocos Creator 3.x build.
   function is3xRoot(root) {
     // Any bundle config or an application.js is enough.
@@ -220,7 +256,7 @@ function detectProjectVersion(sourcePath, versionHint) {
         const entries = fs.readdirSync(assetsDir, { withFileTypes: true });
         for (const e of entries) {
           if (!e.isDirectory()) continue;
-          if (fs.existsSync(path.join(assetsDir, e.name, 'config.json'))) return true;
+          if (findBundleConfigPath(path.join(assetsDir, e.name))) return true;
         }
       } catch {
         // ignore
@@ -242,10 +278,18 @@ function detectProjectVersion(sourcePath, versionHint) {
 
   // 如果用户提供了版本提示，优先使用对应版本的路径
   if (versionHint === '2.4.x') {
+    // Web / JSB bundle builds also ship settings.js + main.js — bundle pipeline first.
+    for (const root of uniqueCandidateRoots) {
+      if (is24xBundleRoot(root)) {
+        logger.info('使用用户指定的 Cocos Creator 2.4.x bundle 项目结构');
+        return { version: '3.x', sourcePath: root };
+      }
+    }
+
     const settings24 = findExistingPath(paths24x.settings);
     const project24 = findExistingPath(paths24x.project);
     const res24 = findExistingPath(paths24x.res);
-    
+
     if (settings24 && project24 && res24) {
       logger.info('使用用户指定的Cocos Creator 2.4.x项目结构');
       return {
@@ -254,9 +298,8 @@ function detectProjectVersion(sourcePath, versionHint) {
         projectPath: project24,
         resPath: res24
       };
-    } else {
-      logger.warn('用户指定2.4.x版本，但未找到对应文件结构，尝试自动检测...');
     }
+    logger.warn('用户指定2.4.x版本，但未找到对应文件结构，尝试自动检测...');
   } else if (versionHint === '2.3.x') {
     const settings23 = findExistingPath(paths23x.settings);
     const project23 = findExistingPath(paths23x.project);
@@ -275,8 +318,15 @@ function detectProjectVersion(sourcePath, versionHint) {
     }
   }
 
-  // Auto-detect 3.x first — its marker (config.json in a bundle dir) is very
-  // specific and cannot be confused with 2.x layouts.
+  // Auto-detect: 2.4.x bundle before 3.x (both use assets/<bundle>/config.json).
+  for (const root of uniqueCandidateRoots) {
+    if (is24xBundleRoot(root)) {
+      logger.info('自动检测到 Cocos Creator 2.4.x bundle 项目结构');
+      return { version: '3.x', sourcePath: root };
+    }
+  }
+
+  // Auto-detect 3.x — config.json in a bundle dir or application.js / settings.json.
   for (const root of uniqueCandidateRoots) {
     if (is3xRoot(root)) {
       logger.info('自动检测到Cocos Creator 3.x项目结构');
@@ -398,6 +448,34 @@ function parseSettings(settings) {
     logger.warn('使用默认设置');
     global.settings = { CCSettings: {} };
   }
+}
+
+/**
+ * After asset recovery, decode .astc textures to .webp when enabled.
+ * @param {string} outputPath
+ * @param {object} options
+ */
+async function runAstcPostProcess(outputPath, options = {}) {
+  if (options.scriptsOnly) return null;
+  if (global.config?.assets?.convertAstcToWebp === false) return null;
+  const stats = await convertAstcToWebp(outputPath, { verbose: options.verbose });
+  await appendAstcReport(outputPath, stats);
+  return stats;
+}
+
+async function appendAstcReport(outputPath, stats) {
+  if (!stats || stats.skipped || stats.total === 0) return;
+  const reportPath = path.join(outputPath, 'RECOVERY_REPORT.md');
+  if (!fs.existsSync(reportPath)) return;
+  const lines = [
+    '',
+    '## ASTC -> WebP',
+    '',
+    `- Total: ${stats.total}`,
+    `- Converted: ${stats.converted}`,
+    `- Failed: ${stats.failed}`,
+  ];
+  await fs.promises.appendFile(reportPath, lines.join('\n'));
 }
 
 module.exports = { reverseProject, detectProjectVersion };

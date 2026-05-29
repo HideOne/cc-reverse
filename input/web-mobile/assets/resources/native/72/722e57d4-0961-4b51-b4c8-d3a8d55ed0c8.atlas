@@ -1,0 +1,27 @@
+spine_activity_madnesswheel_icon_0.webp
+size: 102, 124
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spine_activity_madnesswheel_icon=1
+  rotate: false
+  xy: 1, 1
+  size: 100, 70
+  orig: 100, 70
+  offset: 0, 0
+  index: -1
+spine_activity_madnesswheel_icon=2
+  rotate: false
+  xy: 1, 73
+  size: 48, 50
+  orig: 48, 50
+  offset: 0, 0
+  index: -1
+spine_activity_madnesswheel_icon=3
+  rotate: false
+  xy: 51, 73
+  size: 46, 48
+  orig: 46, 48
+  offset: 0, 0
+  index: -1
+

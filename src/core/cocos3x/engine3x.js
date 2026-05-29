@@ -21,11 +21,14 @@ const path = require('path');
 const { promisify } = require('util');
 const { logger } = require('../../utils/logger');
 const { uuidUtils } = require('../../utils/uuidUtils');
-const { parseBundleConfig, getImportPath, getNativePath } = require('./bundleConfig');
+const { parseBundleConfig, getImportPath, getNativePath, findBundleConfigPath } = require('./bundleConfig');
 const { isCcon, decodeCcon } = require('./ccon');
 const { inspect } = require('./deserializer');
-const { rehydrateIFileData } = require('./rehydrate');
+const { rehydrateIFileData, expandEditorUuids, expandEditorFormat } = require('./rehydrate');
+const { recoverSpinePathGroup, recoverSpriteAtlasPlist, recoverEffectAsset, recoverMaterialAsset } = require('./editorAssetRecovery');
 const { writeCocos2xProject } = require('./projectScaffold');
+const parser = require('@babel/parser');
+const generate = require('@babel/generator');
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
@@ -104,11 +107,14 @@ async function reverseProject3x(options) {
   await mkdir(outputPath, { recursive: true });
   await mkdir(path.join(outputPath, 'assets'), { recursive: true });
 
+  const projectFlavor = detectProjectFlavor(sourcePath);
   const summary = {
     engine: '3.x',
     bundles: [],
     scripts: { total: 0 },
     warnings: [],
+    flavor: projectFlavor.flavor,
+    cocosVersion: projectFlavor.version,
   };
 
   if (!scriptsOnly) {
@@ -120,8 +126,14 @@ async function reverseProject3x(options) {
         logger.debug(`Skipping bundle ${name} (not in --bundle filter)`);
         continue;
       }
+      if (projectFlavor.flavor === '2.4.x-bundle' && name === 'internal') {
+        logger.info(`Skipping built-in bundle "${name}" (not needed in editor project)`);
+        continue;
+      }
       try {
-        const result = await unpackBundle({ bundleDir, outputPath, verbose });
+        const result = await unpackBundle({
+          bundleDir, outputPath, verbose, flavor: projectFlavor.flavor,
+        });
         summary.bundles.push(result);
       } catch (err) {
         logger.error(`Failed to unpack bundle ${name}:`, err);
@@ -133,9 +145,6 @@ async function reverseProject3x(options) {
   if (!assetsOnly) {
     summary.scripts = await recoverScripts(sourcePath, outputPath, verbose);
   }
-
-  const projectFlavor = detectProjectFlavor(sourcePath);
-  summary.flavor = projectFlavor.flavor;
 
   if (projectFlavor.flavor === '2.4.x-bundle') {
     await writeCocos2xProject(outputPath, {
@@ -230,8 +239,8 @@ async function discoverBundles(sourcePath) {
       try {
         const st = await stat(bundleDir);
         if (!st.isDirectory()) continue;
-        const cfgPath = path.join(bundleDir, 'config.json');
-        if (fs.existsSync(cfgPath)) bundles.push(bundleDir);
+        const cfgPath = findBundleConfigPath(bundleDir);
+        if (cfgPath) bundles.push(bundleDir);
       } catch {
         // ignore
       }
@@ -243,14 +252,20 @@ async function discoverBundles(sourcePath) {
 /**
  * Unpack a single bundle. Returns a summary record.
  */
-async function unpackBundle({ bundleDir, outputPath, verbose }) {
-  const cfgPath = path.join(bundleDir, 'config.json');
+async function unpackBundle({ bundleDir, outputPath, verbose, flavor = 'unknown' }) {
+  const cfgPath = findBundleConfigPath(bundleDir);
+  if (!cfgPath) {
+    throw new Error(`No config.json in ${bundleDir}`);
+  }
   const raw = JSON.parse(await readFile(cfgPath, 'utf-8'));
   const cfg = parseBundleConfig(raw, bundleDir);
 
   logger.info(`Bundle "${cfg.name}": ${cfg.uuids.length} uuids, ${Object.keys(cfg.paths).length} paths`);
 
-  const bundleOut = path.join(outputPath, 'assets', cfg.name);
+  // Main bundle assets live at assets/<path> in the editor; named bundles use assets/<name>/.
+  const bundleOut = cfg.name === 'main'
+    ? path.join(outputPath, 'assets')
+    : path.join(outputPath, 'assets', cfg.name);
   await mkdir(bundleOut, { recursive: true });
 
   // Build uuid → { packUuid, position } so we can recover packed assets.
@@ -281,19 +296,73 @@ async function unpackBundle({ bundleDir, outputPath, verbose }) {
   // a uuid appears in both `paths` and `scenes` and the catch-all uuids pass.
   const handled = new Set();
 
-  // 1) Named assets from config.paths — the user's project-visible tree.
+  // 1) Group paths by project path — merge Texture2D + SpriteFrame sub-assets.
+  const pathGroups = new Map();
   for (const uuid of Object.keys(cfg.paths)) {
     const info = cfg.paths[uuid];
-    try {
-      const ok = await unpackAsset({
-        cfg, uuid, info, bundleOut, verbose,
-      });
-      handled.add(uuid);
-      if (ok) result.recovered += 1;
-      else result.missing += 1;
-    } catch (err) {
-      result.warnings.push(`${info.path}: ${err.message}`);
-      logger.debug(`Asset ${uuid} (${info.path}) failed: ${err.message}`);
+    const key = info.path || uuid;
+    if (!pathGroups.has(key)) pathGroups.set(key, []);
+    pathGroups.get(key).push({ uuid, info });
+  }
+
+  for (const entries of pathGroups.values()) {
+    const skeletonEntry = entries.find((e) => e.info.type === 'sp.SkeletonData');
+    if (skeletonEntry && flavor === '2.4.x-bundle') {
+      try {
+        const ok = await recoverSpinePathGroup({
+          cfg,
+          entries,
+          bundleOut,
+          peekImportDoc: (u) => peekImportDoc(cfg, u),
+          globNative: (u) => globNativeByUuid(cfg, u),
+        });
+        for (const { uuid } of entries) handled.add(uuid);
+        if (ok) result.recovered += 1;
+        else result.missing += 1;
+      } catch (err) {
+        result.warnings.push(`${skeletonEntry.info.path}: ${err.message}`);
+      }
+      continue;
+    }
+
+    const textureEntry = entries.find((e) => e.info.type === 'cc.Texture2D' && !e.info.subAsset);
+    const spriteEntry = entries.find((e) => e.info.type === 'cc.SpriteFrame' || e.info.subAsset);
+
+    if (textureEntry && spriteEntry) {
+      const sfDoc = await peekImportDoc(cfg, spriteEntry.uuid);
+      const linked = parseSpriteFrameFromDoc(sfDoc, spriteEntry.uuid);
+      try {
+        const ok = await unpackAsset({
+          cfg,
+          uuid: textureEntry.uuid,
+          info: { ...textureEntry.info, linkedSpriteFrame: linked || undefined },
+          bundleOut,
+          verbose,
+          flavor,
+        });
+        handled.add(textureEntry.uuid);
+        handled.add(spriteEntry.uuid);
+        if (ok) result.recovered += 1;
+        else result.missing += 1;
+      } catch (err) {
+        result.warnings.push(`${textureEntry.info.path}: ${err.message}`);
+      }
+      continue;
+    }
+
+    for (const { uuid, info } of entries) {
+      if (info.subAsset) {
+        handled.add(uuid);
+        continue;
+      }
+      try {
+        const ok = await unpackAsset({ cfg, uuid, info, bundleOut, verbose, flavor });
+        handled.add(uuid);
+        if (ok) result.recovered += 1;
+        else result.missing += 1;
+      } catch (err) {
+        result.warnings.push(`${info.path}: ${err.message}`);
+      }
     }
   }
 
@@ -302,13 +371,16 @@ async function unpackBundle({ bundleDir, outputPath, verbose }) {
     const uuid = cfg.scenes[sceneName];
     if (!uuid || handled.has(uuid)) continue;
     // Scene names use the full `db://assets/scene/foo.fire` form in 2.4+ bundles.
-    const pathStr = sceneName
+    let pathStr = sceneName
       .replace(/^db:\/\/(assets\/)?/, '')
-      .replace(/\.(fire|scene)$/, '')
-      || `scene/${uuid}`;
+      .replace(/\.(fire|scene)$/, '');
+    const bundlePrefix = `${cfg.name}/`;
+    if (pathStr.startsWith(bundlePrefix)) {
+      pathStr = pathStr.slice(bundlePrefix.length);
+    }
     const info = { path: pathStr, type: 'cc.SceneAsset', subAsset: false };
     try {
-      const ok = await unpackAsset({ cfg, uuid, info, bundleOut, verbose });
+      const ok = await unpackAsset({ cfg, uuid, info, bundleOut, verbose, flavor });
       handled.add(uuid);
       if (ok) result.recovered += 1;
       else result.missing += 1;
@@ -320,15 +392,47 @@ async function unpackBundle({ bundleDir, outputPath, verbose }) {
   // 3) UUID-only assets (in uuids[] but not in paths/scenes). Typical for
   //    packed dependencies referenced by prefabs/scenes. Extract them under
   //    _packed/<2>/<uuid> so the editor can still resolve cross-asset refs.
-  for (const uuid of cfg.uuids) {
-    if (handled.has(uuid)) continue;
+  const pending = cfg.uuids.filter(
+    (u) => !handled.has(u) && !(cfg.redirect && cfg.redirect[u]),
+  );
+  const spriteByTexture = new Map();
+  for (const uuid of pending) {
+    const doc = await peekImportDoc(cfg, uuid);
+    const sf = parseSpriteFrameFromDoc(doc, uuid);
+    if (sf?.textureUuid) spriteByTexture.set(sf.textureUuid, sf);
+  }
+
+  for (const uuid of pending) {
+    const linked = spriteByTexture.get(uuid);
+    if (linked) {
+      const info = {
+        path: `Texture/${linked.name}`,
+        type: 'cc.Texture2D',
+        subAsset: false,
+        linkedSpriteFrame: linked,
+      };
+      try {
+        const ok = await unpackAsset({ cfg, uuid, info, bundleOut, verbose, flavor });
+        handled.add(uuid);
+        handled.add(linked.sfUuid);
+        if (ok) result.recovered += 1;
+      } catch (err) {
+        logger.debug(`Texture ${uuid} failed: ${err.message}`);
+      }
+      continue;
+    }
+    if ([...spriteByTexture.values()].some((sf) => sf.sfUuid === uuid)) {
+      handled.add(uuid);
+      continue;
+    }
+
     const info = {
       path: `_packed/${uuid.slice(0, 2)}/${uuid}`,
       type: null,
       subAsset: false,
     };
     try {
-      const ok = await unpackAsset({ cfg, uuid, info, bundleOut, verbose });
+      const ok = await unpackAsset({ cfg, uuid, info, bundleOut, verbose, flavor });
       handled.add(uuid);
       if (ok) result.recovered += 1;
     } catch (err) {
@@ -337,32 +441,38 @@ async function unpackBundle({ bundleDir, outputPath, verbose }) {
     }
   }
 
-  // Preserve the original config.json for reference — useful when a user wants
-  // to re-pack or debug.
-  await copyFile(cfgPath, path.join(bundleOut, 'config.original.json'));
-
-  // Preserve the bundle's compiled user-script bundle (2.4+ ships this as
-  // <bundle>/game.js or <bundle>/index.js). 5MB+ on a real project.
-  for (const scriptName of ['game.js', 'index.js']) {
-    const src = path.join(bundleDir, scriptName);
-    if (fs.existsSync(src)) {
-      await copyFile(src, path.join(bundleOut, scriptName));
-      result.scriptBundle = scriptName;
+  if (flavor === '2.4.x-bundle') {
+    const bootBundleDir = path.join(outputPath, '_boot', 'bundles', cfg.name);
+    await mkdir(bootBundleDir, { recursive: true });
+    await copyFile(cfgPath, path.join(bootBundleDir, path.basename(cfgPath)));
+    for (const scriptName of ['game.js', 'index.js']) {
+      const src = path.join(bundleDir, scriptName);
+      if (fs.existsSync(src)) {
+        await copyFile(src, path.join(bootBundleDir, scriptName));
+        result.scriptBundle = scriptName;
+      }
+    }
+  } else {
+    await copyFile(cfgPath, path.join(bundleOut, 'config.original.json'));
+    for (const scriptName of ['game.js', 'index.js']) {
+      const src = path.join(bundleDir, scriptName);
+      if (fs.existsSync(src)) {
+        await copyFile(src, path.join(bundleOut, scriptName));
+        result.scriptBundle = scriptName;
+      }
     }
   }
 
   return result;
 }
 
-async function unpackAsset({ cfg, uuid, info, bundleOut, verbose }) {
+async function unpackAsset({ cfg, uuid, info, bundleOut, verbose, flavor = 'unknown' }) {
   const importSrc = getImportPath(cfg, uuid, '.json');
   const importSrcCcon = getImportPath(cfg, uuid, '.cconb');
   const nativeExt = cfg.extensionMap[uuid] || null;
   const nativeSrc = nativeExt ? getNativePath(cfg, uuid, nativeExt) : null;
 
-  // Choose an output path. Prefer the project path from config.paths — that's
-  // what the editor will see.
-  const className = info.type || 'cc.Asset';
+  let className = info.type || 'cc.Asset';
   const outDir = classOutputDir(className);
   const relPath = info.path || `${outDir}/${uuid}`;
   const outBase = path.join(bundleOut, relPath);
@@ -373,17 +483,8 @@ async function unpackAsset({ cfg, uuid, info, bundleOut, verbose }) {
   let importPackRef = null;
   let importRecovered = false;
   let nativeRecovered = false;
+  let resolvedNativeExt = nativeExt || null;
 
-  // Asset-class-driven filename for the import document:
-  //   scene   -> .fire   (2.4) or .scene (3.x). We emit .fire when the doc is
-  //                 in legacy tuple form (2.4 bundles); otherwise .scene.
-  //   prefab  -> .prefab
-  //   pure-native classes (Texture2D, AudioClip, TTFFont, …) skip the import
-  //                 write entirely — the native file is the real asset.
-  const importExt = inferImportExt(className);
-  const skipImportWrite = isPureNativeClass(className);
-
-  // --- Import document (one per asset, or inside a pack) ---
   if (fs.existsSync(importSrc)) {
     const buf = await readFile(importSrc);
     if (isCcon(buf)) {
@@ -396,35 +497,84 @@ async function unpackAsset({ cfg, uuid, info, bundleOut, verbose }) {
         importDoc = null;
       }
     }
-    if (importDoc !== null) {
-      if (!skipImportWrite) {
-        // Rehydrate IFileData tuples back to editor source format
-        // (`[{__type__, ...}, ...]` with {__id__}/{__uuid__} refs). Falls
-        // back to the raw document when the shape isn't recognised or when
-        // CC_REVERSE_NO_REHYDRATE=1 is set.
-        const disabled = process.env.CC_REVERSE_NO_REHYDRATE === '1';
-        const content = disabled
-          ? importDoc
-          : (tryRehydrate(importDoc) || importDoc);
-        await writeFile(outBase + importExt, JSON.stringify(content, null, 2));
-      }
-      importRecovered = true;
-    }
+    if (importDoc !== null) importRecovered = true;
   } else if (fs.existsSync(importSrcCcon)) {
     const buf = await readFile(importSrcCcon);
     importDoc = await decodeCconToDoc(buf, outBase);
     importFromCcon = true;
-    if (importDoc !== null) {
-      if (!skipImportWrite) {
-        const disabled = process.env.CC_REVERSE_NO_REHYDRATE === '1';
-        const content = disabled
-          ? importDoc
-          : (tryRehydrate(importDoc) || importDoc);
-        await writeFile(outBase + importExt, JSON.stringify(content, null, 2));
-      }
+    if (importDoc !== null) importRecovered = true;
+  }
+
+  if (!importRecovered && cfg._packIndex && cfg._packIndex[uuid]) {
+    const { packUuid, position } = cfg._packIndex[uuid];
+    const section = await extractPackSection(cfg, packUuid, position);
+    if (section) {
+      const disabled = process.env.CC_REVERSE_NO_REHYDRATE === '1';
+      importDoc = disabled ? section : (tryRehydrate(section) || section);
+      importPackRef = { packUuid, position };
       importRecovered = true;
     }
   }
+
+  if (importDoc) {
+    const disabled = process.env.CC_REVERSE_NO_REHYDRATE === '1';
+    const normalizedDoc = disabled
+      ? importDoc
+      : (tryRehydrate(importDoc) || importDoc);
+    className = resolveDocClassName(normalizedDoc, className);
+
+    let editorDoc = normalizedDoc;
+    if (flavor === '2.4.x-bundle') {
+      editorDoc = JSON.parse(JSON.stringify(normalizedDoc));
+      if (Array.isArray(editorDoc)) {
+        expandEditorFormat(editorDoc);
+        expandEditorUuids(editorDoc);
+      } else {
+        expandEditorUuids(editorDoc);
+      }
+    }
+
+    if (flavor === '2.4.x-bundle' && className === 'cc.SpriteAtlas') {
+      let textureUuidHint = null;
+      if (cfg.paths && cfg.paths[uuid]) {
+        const assetPath = cfg.paths[uuid].path;
+        const sibling = Object.entries(cfg.paths).find(
+          ([, info]) => info.path === assetPath && info.type === 'cc.Texture2D' && !info.subAsset,
+        );
+        if (sibling) textureUuidHint = uuidUtils.decodeUuid(sibling[0]);
+      }
+      const atlasOk = await recoverSpriteAtlasPlist({
+        cfg,
+        uuid,
+        outBase,
+        doc: editorDoc,
+        peekImportDoc: (u) => peekImportDoc(cfg, u),
+        textureUuidHint,
+      });
+      if (atlasOk) return true;
+    }
+
+    if (flavor === '2.4.x-bundle' && className === 'cc.EffectAsset') {
+      const effectOk = await recoverEffectAsset({ uuid, outBase, doc: editorDoc });
+      if (effectOk) return true;
+    }
+
+    if (flavor === '2.4.x-bundle' && className === 'cc.Material') {
+      const materialOk = await recoverMaterialAsset({ uuid, outBase, doc: editorDoc });
+      if (materialOk) return true;
+    }
+
+    const skipImportWrite = shouldSkipImportWrite(className);
+    if (importRecovered && !skipImportWrite) {
+      const outDoc = flavor === '2.4.x-bundle' ? editorDoc : normalizedDoc;
+      await writeFile(
+        outBase + inferImportExt(className),
+        JSON.stringify(outDoc, null, 2),
+      );
+    }
+  }
+
+  const importExt = inferImportExt(className);
 
   if (importDoc && verbose) {
     const info2 = inspect(importDoc);
@@ -438,6 +588,7 @@ async function unpackAsset({ cfg, uuid, info, bundleOut, verbose }) {
   //      builds ship, since their extensionMap is often empty.
   if (nativeSrc && fs.existsSync(nativeSrc)) {
     await copyFile(nativeSrc, outBase + (nativeExt || ''));
+    resolvedNativeExt = nativeExt;
     nativeRecovered = true;
   } else {
     let probedExt = null;
@@ -446,6 +597,7 @@ async function unpackAsset({ cfg, uuid, info, bundleOut, verbose }) {
       const probedSrc = getNativePath(cfg, uuid, probedExt);
       if (probedSrc && fs.existsSync(probedSrc)) {
         await copyFile(probedSrc, outBase + probedExt);
+        resolvedNativeExt = probedExt;
         nativeRecovered = true;
       }
     }
@@ -453,35 +605,124 @@ async function unpackAsset({ cfg, uuid, info, bundleOut, verbose }) {
       const globbed = await globNativeByUuid(cfg, uuid);
       if (globbed) {
         await copyFile(globbed.src, outBase + globbed.ext);
+        resolvedNativeExt = globbed.ext;
         nativeRecovered = true;
       }
     }
   }
 
-  // --- Packed asset (extract section from IPackedFileData) ---
-  if (!importRecovered && cfg._packIndex && cfg._packIndex[uuid]) {
-    const { packUuid, position } = cfg._packIndex[uuid];
-    const section = await extractPackSection(cfg, packUuid, position);
-    if (section) {
-      const disabled = process.env.CC_REVERSE_NO_REHYDRATE === '1';
-      const content = disabled
-        ? section
-        : (tryRehydrate(section) || section);
-      await writeFile(outBase + importExt, JSON.stringify(content, null, 2));
-      importPackRef = { packUuid, position };
-      importRecovered = true;
-    }
+  const recovered = isPureNativeClass(className)
+    ? nativeRecovered
+    : (className === 'cc.SpriteFrame'
+      ? false
+      : (importRecovered || nativeRecovered));
+
+  if (recovered && shouldWriteMeta(className, info)) {
+    await writeMeta({
+      outBase,
+      uuid,
+      className,
+      wasCcon: importFromCcon,
+      packRef: importPackRef,
+      nativeExt: resolvedNativeExt,
+      importExt,
+      flavor,
+      importRecovered,
+      nativeRecovered,
+      linkedSpriteFrame: info.linkedSpriteFrame || null,
+    });
   }
 
-  // --- Meta ---
-  await writeMeta(outBase, uuid, className, importFromCcon, importPackRef);
-
-  return importRecovered || nativeRecovered;
+  return recovered;
 }
 
 function classOutputDir(className) {
   if (!className) return 'raw';
   return CLASS_DIR[className] || 'raw';
+}
+
+async function peekImportDoc(cfg, uuid) {
+  const importSrc = getImportPath(cfg, uuid, '.json');
+  if (importSrc && fs.existsSync(importSrc)) {
+    try {
+      const raw = JSON.parse(await readFile(importSrc, 'utf-8'));
+      const disabled = process.env.CC_REVERSE_NO_REHYDRATE === '1';
+      return disabled ? raw : (tryRehydrate(raw) || raw);
+    } catch {
+      // fall through
+    }
+  }
+  if (cfg._packIndex && cfg._packIndex[uuid]) {
+    const { packUuid, position } = cfg._packIndex[uuid];
+    const section = await extractPackSection(cfg, packUuid, position);
+    if (section) {
+      const disabled = process.env.CC_REVERSE_NO_REHYDRATE === '1';
+      return disabled ? section : (tryRehydrate(section) || section);
+    }
+  }
+  return null;
+}
+
+function resolveDocClassName(doc, fallback = 'cc.Asset') {
+  if (!doc) return fallback;
+  const info = inspect(doc);
+  if (info.rootClass) return info.rootClass;
+  if (Array.isArray(doc) && doc[0] && doc[0].__type__) return doc[0].__type__;
+  if (doc.__type__) return doc.__type__;
+  return fallback;
+}
+
+function parseSpriteFrameFromDoc(doc, sfUuid) {
+  if (!Array.isArray(doc) || !doc[0]) return null;
+  const entry = doc[0];
+  if (entry.__type__ !== 'cc.SpriteFrame') return null;
+  const content = entry.content || {};
+  const name = content.name || 'sprite';
+  let textureUuid = null;
+  if (entry._textureSetter && entry._textureSetter.__uuid__) {
+    textureUuid = uuidUtils.decodeUuid(entry._textureSetter.__uuid__);
+  }
+  const rect = Array.isArray(content.rect) ? content.rect : [0, 0, 0, 0];
+  const offset = Array.isArray(content.offset) ? content.offset : [0, 0];
+  const originalSize = Array.isArray(content.originalSize)
+    ? content.originalSize
+    : [rect[2] || 0, rect[3] || 0];
+  return {
+    sfUuid,
+    name,
+    textureUuid,
+    subMeta: {
+      ver: '1.0.4',
+      uuid: sfUuid,
+      rawTextureUuid: textureUuid,
+      trimType: 'auto',
+      trimThreshold: 1,
+      rotated: false,
+      offsetX: offset[0] || 0,
+      offsetY: offset[1] || 0,
+      trimX: rect[0] || 0,
+      trimY: rect[1] || 0,
+      width: rect[2] || 0,
+      height: rect[3] || 0,
+      rawWidth: originalSize[0] || 0,
+      rawHeight: originalSize[1] || 0,
+      borderTop: 0,
+      borderBottom: 0,
+      borderLeft: 0,
+      borderRight: 0,
+      subMetas: {},
+    },
+  };
+}
+
+function shouldSkipImportWrite(className) {
+  return isPureNativeClass(className) || className === 'cc.SpriteFrame';
+}
+
+function shouldWriteMeta(className, info) {
+  if (info.subAsset) return false;
+  if (className === 'cc.SpriteFrame') return false;
+  return true;
 }
 
 /**
@@ -514,6 +755,22 @@ async function globNativeByUuid(cfg, uuid) {
     }
     return { src: path.join(dir, entry), ext };
   }
+
+  const subDir = path.join(dir, uuid);
+  try {
+    const st = await stat(subDir);
+    if (st.isDirectory()) {
+      const nested = await readdir(subDir);
+      for (const entry of nested) {
+        const ext = path.extname(entry).toLowerCase();
+        if (!ext) continue;
+        return { src: path.join(subDir, entry), ext };
+      }
+    }
+  } catch {
+    // ignore
+  }
+
   return null;
 }
 
@@ -628,9 +885,61 @@ async function decodeCconToDoc(buf, outBase) {
   return null;
 }
 
-async function writeMeta(outBase, uuid, className, wasCcon, packRef) {
-  const ext = inferMetaExt(className);
+async function writeMeta({
+  outBase, uuid, className, wasCcon, packRef, nativeExt, importExt, flavor,
+  importRecovered, nativeRecovered, linkedSpriteFrame,
+}) {
+  const ext = resolveMetaExt({
+    nativeExt, importExt, className, importRecovered, nativeRecovered,
+  });
   const metaPath = outBase + ext + '.meta';
+  const meta = buildMetaContent(
+    className, uuid, flavor, wasCcon, packRef, linkedSpriteFrame,
+  );
+  await writeFile(metaPath, JSON.stringify(meta, null, 2));
+}
+
+function buildMetaContent(className, uuid, flavor, wasCcon, packRef, linkedSpriteFrame) {
+  if (flavor === '2.4.x-bundle') {
+    const base = { uuid, subMetas: {} };
+    switch (className) {
+      case 'cc.SceneAsset':
+        return {
+          ver: '1.3.2',
+          ...base,
+          importer: 'scene',
+          asyncLoadAssets: false,
+          autoReleaseAssets: false,
+        };
+      case 'cc.Texture2D':
+      case 'cc.ImageAsset': {
+        const meta = {
+          ver: '2.3.7',
+          ...base,
+          importer: 'texture',
+          type: linkedSpriteFrame ? 'sprite' : 'raw',
+          wrapMode: 'clamp',
+          filterMode: 'bilinear',
+          premultiplyAlpha: false,
+          genMipmaps: false,
+          packable: true,
+          platformSettings: {},
+        };
+        if (linkedSpriteFrame) {
+          meta.subMetas = {
+            [linkedSpriteFrame.name]: {
+              ...linkedSpriteFrame.subMeta,
+              importer: 'sprite-frame',
+            },
+          };
+        }
+        return meta;
+      }
+      default:
+        return { ver: '1.0.0', ...base };
+    }
+  }
+
   const meta = {
     ver: '1.2.7',
     uuid,
@@ -644,10 +953,18 @@ async function writeMeta(outBase, uuid, className, wasCcon, packRef) {
     meta.packedIn = packRef.packFile;
     meta.packPosition = packRef.position;
   }
-  await writeFile(metaPath, JSON.stringify(meta, null, 2));
+  return meta;
 }
 
-function inferMetaExt(className) {
+function resolveMetaExt({
+  nativeExt, importExt, className, importRecovered, nativeRecovered,
+}) {
+  if (nativeRecovered && nativeExt) return nativeExt;
+  if (importRecovered && importExt) return importExt;
+  return inferMetaExt(className, importExt);
+}
+
+function inferMetaExt(className, importExt) {
   // The meta extension mirrors the asset file extension. When the asset is
   // native-only (texture/audio/font), the meta sits next to the native file.
   switch (className) {
@@ -662,7 +979,7 @@ function inferMetaExt(className) {
     case 'cc.AudioClip':     return '';
     case 'cc.TTFFont':       return '';
     case 'cc.BitmapFont':    return '';
-    default:                 return '.json';
+    default:                 return importExt || '.json';
   }
 }
 
@@ -712,12 +1029,207 @@ function classToImporter(className) {
   return map[className] || 'asset';
 }
 
+async function recover24BundleScripts(sourcePath, outputPath, verbose) {
+  const assetsDir = path.join(sourcePath, 'assets');
+  if (!fs.existsSync(assetsDir)) return 0;
+
+  let count = 0;
+  const entries = await readdir(assetsDir);
+  const ccClassPattern = /cc\._RF\.push\([^,]+,\s*"([^"]+)"\s*,\s*"([^"]+)"\)\s*,\s*(cc\.Class\(\{[\s\S]*?\}\))/g;
+  const blockPattern = /cc\._RF\.push\([^,]+,\s*"([^"]+)"\s*,\s*"([^"]+)"\)\s*;([\s\S]*?)cc\._RF\.pop\(\)/g;
+
+  for (const entry of entries) {
+    if (entry === 'internal') continue;
+    const indexPath = path.join(assetsDir, entry, 'index.js');
+    if (!fs.existsSync(indexPath)) continue;
+
+    const bundleName = entry;
+    const scriptOut = bundleName === 'main'
+      ? path.join(outputPath, 'assets', 'Script')
+      : path.join(outputPath, 'assets', bundleName, 'Script');
+    const text = await readFile(indexPath, 'utf-8');
+    const recovered = new Set();
+
+    let match = ccClassPattern.exec(text);
+    while (match) {
+      const rfId = match[1];
+      const scriptName = match[2];
+      recovered.add(scriptName);
+      const relPath = bundleName === 'main'
+        ? `assets/Script/${scriptName}.js`
+        : `assets/${bundleName}/Script/${scriptName}.js`;
+      await writeRecoveredScript({
+        scriptOut,
+        scriptName,
+        ext: '.js',
+        importer: 'javascript',
+        source: formatRecoveredScript(match[3]),
+        rfId,
+        relPath,
+        verbose,
+      });
+      count += 1;
+      match = ccClassPattern.exec(text);
+    }
+
+    match = blockPattern.exec(text);
+    while (match) {
+      const rfId = match[1];
+      const scriptName = match[2];
+      if (recovered.has(scriptName)) {
+        match = blockPattern.exec(text);
+        continue;
+      }
+      const body = match[3];
+      if (body.includes('cc._decorator') || body.includes('__decorate')) {
+        const relPath = bundleName === 'main'
+          ? `assets/Script/${scriptName}.ts`
+          : `assets/${bundleName}/Script/${scriptName}.ts`;
+        await writeRecoveredScript({
+          scriptOut,
+          scriptName,
+          ext: '.ts',
+          importer: 'typescript',
+          source: reconstructTypeScriptScript(body),
+          rfId,
+          relPath,
+          verbose,
+        });
+        recovered.add(scriptName);
+        count += 1;
+      }
+      match = blockPattern.exec(text);
+    }
+
+    if (recovered.size > 0) {
+      await writeScriptFolderMeta(scriptOut);
+    }
+  }
+
+  return count;
+}
+
+async function writeRecoveredScript({
+  scriptOut, scriptName, ext, importer, source, rfId, relPath, verbose,
+}) {
+  const scriptUuid = uuidUtils.decodeScriptRfUuid(rfId);
+  await mkdir(scriptOut, { recursive: true });
+  const dest = path.join(scriptOut, `${scriptName}${ext}`);
+  await writeFile(dest, source);
+  await writeFile(dest + '.meta', JSON.stringify({
+    ver: '1.1.0',
+    uuid: scriptUuid,
+    importer,
+    isPlugin: false,
+    loadPluginInWeb: true,
+    loadPluginInNative: true,
+    loadPluginInEditor: false,
+    subMetas: {},
+  }, null, 2));
+  logger.info(`Recovered script: ${relPath}`);
+  if (verbose) logger.debug(`  uuid: ${scriptUuid}`);
+}
+
+function reconstructTypeScriptScript(body) {
+  const props = [];
+  const typedRe = /\[f\((cc\.[\w.]+)\)\],[\w.]+\.prototype,"(\w+)"/g;
+  let m = typedRe.exec(body);
+  while (m) {
+    props.push({ name: m[2], decoratorArg: m[1], tsType: m[1] });
+    m = typedRe.exec(body);
+  }
+
+  const untypedRe = /\[f\],[\w.]+\.prototype,"(\w+)"/g;
+  m = untypedRe.exec(body);
+  while (m) {
+    if (!props.some((p) => p.name === m[1])) {
+      props.push({ name: m[1], decoratorArg: null, tsType: 'string' });
+    }
+    m = untypedRe.exec(body);
+  }
+
+  const defaults = {};
+  const defaultRe = /[\w.]+\.(\w+)=(null|"[^"]*"|'[^']*'|\d+)/g;
+  m = defaultRe.exec(body);
+  while (m) {
+    defaults[m[1]] = m[2];
+    m = defaultRe.exec(body);
+  }
+
+  const methods = [];
+  const methodRe = /\.prototype\.(\w+)=function/g;
+  m = methodRe.exec(body);
+  while (m) {
+    if (m[1] !== 'constructor') methods.push(m[1]);
+    m = methodRe.exec(body);
+  }
+
+  const lines = [
+    'const {ccclass, property} = cc._decorator;',
+    '',
+    '@ccclass',
+    'export default class NewClass extends cc.Component {',
+    '',
+  ];
+
+  for (const prop of props) {
+    if (prop.decoratorArg) {
+      lines.push(`    @property(${prop.decoratorArg})`);
+    } else {
+      lines.push('    @property');
+    }
+    const def = defaults[prop.name] != null ? defaults[prop.name] : 'null';
+    lines.push(`    ${prop.name}: ${prop.tsType} = ${def};`);
+    lines.push('');
+  }
+
+  for (const method of methods) {
+    lines.push(`    ${method} () {`);
+    lines.push('');
+    lines.push('    }');
+    lines.push('');
+  }
+
+  lines.push('}');
+  lines.push('');
+  return lines.join('\n');
+}
+
+function formatRecoveredScript(classExpr) {
+  try {
+    const ast = parser.parseExpression(classExpr);
+    return `${generate(ast, { quotes: 'single', compact: false }).code};\n`;
+  } catch {
+    return `${classExpr};\n`;
+  }
+}
+
+async function writeScriptFolderMeta(scriptOut) {
+  const metaPath = `${scriptOut}.meta`;
+  if (fs.existsSync(metaPath)) return;
+  await writeFile(metaPath, JSON.stringify({
+    ver: '1.1.3',
+    uuid: uuidUtils.generateUuid(),
+    importer: 'folder',
+    isBundle: false,
+    bundleName: '',
+    priority: 1,
+    compressionType: {},
+    optimizeHotUpdate: {},
+    inlineSpriteFrames: {},
+    isRemoteBundle: {},
+    subMetas: {},
+  }, null, 2));
+}
+
 /**
  * Recover user scripts from src/chunks (SystemJS) into assets/Scripts.
  *
  * 3.x ships TypeScript compiled to ES5. We preserve filenames where possible.
  */
 async function recoverScripts(sourcePath, outputPath, verbose) {
+  let total = await recover24BundleScripts(sourcePath, outputPath, verbose);
+
   const candidates = [
     path.join(sourcePath, 'src', 'chunks'),
     path.join(sourcePath, 'src'),
@@ -725,12 +1237,12 @@ async function recoverScripts(sourcePath, outputPath, verbose) {
   ];
   const scriptsOut = path.join(outputPath, 'assets', 'Scripts');
 
-  let total = 0;
   for (const dir of candidates) {
     if (!fs.existsSync(dir)) continue;
     const entries = await readdir(dir);
     for (const entry of entries) {
-      if (!entry.endsWith('.js')) continue;
+      if (entry.endsWith('.js')) continue;
+      if (entry === 'settings.js') continue;
       if (entry.startsWith('system.') || entry.startsWith('polyfills.')) continue;
       if (entry === 'cc.js') continue;
       const src = path.join(dir, entry);

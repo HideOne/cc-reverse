@@ -133,27 +133,26 @@ describe('rehydrateIFileData', () => {
     });
   });
 
-  it('decodes Color ValueType (uint32 → rgba)', () => {
+  it('decodes Color ValueType (uint32 ABGR → rgba)', () => {
     const doc = build({
       sharedClasses: [
-        // 0 simple, 1 advanced: offset = 3 - 0 = 3 → keys[0] type = class[0+3] = class[3]
         ['cc.Sprite', ['color'], 3, DataTypeID.ValueType],
       ],
       sharedMasks: [
-        [0, 0, 1],  // objectData: [mask, value0]; offset=1 (value0 is advanced)
+        [0, 0, 1],
       ],
       instances: [
-        // Color index 4 — uint32 encoded as (r<<24 | g<<16 | b<<8 | a)
-        [0, [4, 0xFF8040FF]],
+        // ABGR: a=255, b=46, g=38, r=27 → 0xFF2E261B
+        [0, [4, 0xFF2E261B]],
       ],
     });
     const out = rehydrateIFileData(doc);
     expect(out[0].color).toEqual({
       __type__: 'cc.Color',
-      r: 0xFF,
-      g: 0x80,
-      b: 0x40,
-      a: 0xFF,
+      r: 27,
+      g: 38,
+      b: 46,
+      a: 255,
     });
   });
 
