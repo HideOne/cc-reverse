@@ -25,7 +25,7 @@ const { parseBundleConfig, getImportPath, getNativePath, findBundleConfigPath } 
 const { isCcon, decodeCcon } = require('./ccon');
 const { inspect } = require('./deserializer');
 const { rehydrateIFileData, expandEditorUuids, expandEditorFormat } = require('./rehydrate');
-const { recoverSpinePathGroup, recoverSpriteAtlasPlist, recoverEffectAsset, recoverMaterialAsset, recoverBitmapFont } = require('./editorAssetRecovery');
+const { recoverSpinePathGroup, recoverSpriteAtlasPlist, recoverPlistsFromPacks, recoverEffectAsset, recoverMaterialAsset, recoverBitmapFont } = require('./editorAssetRecovery');
 const { writeCocos2xProject } = require('./projectScaffold');
 const parser = require('@babel/parser');
 const generate = require('@babel/generator');
@@ -469,6 +469,12 @@ async function unpackBundle({ bundleDir, outputPath, verbose, flavor = 'unknown'
         await copyFile(src, path.join(bootBundleDir, scriptName));
         result.scriptBundle = scriptName;
       }
+    }
+    try {
+      const plistCount = await recoverPlistsFromPacks(cfg, bundleOut);
+      if (plistCount > 0) result.plistFromPacks = plistCount;
+    } catch (err) {
+      result.warnings.push(`pack plist recovery: ${err.message}`);
     }
   } else {
     await copyFile(cfgPath, path.join(bundleOut, 'config.original.json'));

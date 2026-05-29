@@ -10,8 +10,15 @@ const { promisify } = require('util');
 const fs = require('fs');
 const { uuidUtils } = require('../../utils/uuidUtils');
 const { logger } = require('../../utils/logger');
+const { getImportPath } = require('./bundleConfig');
+const {
+  parseCreatorPackJSON,
+  generateFormat3Plist,
+  resolvePackOutputPath,
+} = require('./jsonToPlistConverter');
 
 const writeFile = promisify(fs.writeFile);
+const readFile = promisify(fs.readFile);
 const copyFile = promisify(fs.copyFile);
 const mkdir = promisify(fs.mkdir);
 
@@ -88,85 +95,25 @@ function extractFrameFields(obj) {
 
 function frameToPlistEntry(frame) {
   const [x, y, w, h] = frame.rect;
-  const rotated = !!frame.rotated;
   const ox = Array.isArray(frame.offset) ? frame.offset[0] : frame.offset.x;
   const oy = Array.isArray(frame.offset) ? frame.offset[1] : frame.offset.y;
   const ow = Array.isArray(frame.originalSize) ? frame.originalSize[0] : frame.originalSize.w;
   const oh = Array.isArray(frame.originalSize) ? frame.originalSize[1] : frame.originalSize.h;
-  const offsetX = ox || 0;
-  const offsetY = oy || 0;
-  const frameW = rotated ? h : w;
-  const frameH = rotated ? w : h;
   return {
-    frame: { x, y, w: frameW, h: frameH },
-    offset: { x: offsetX, y: offsetY },
-    rotated,
-    trimWidth: w,
-    trimHeight: h,
-    // Creator 2.4: sourceColorRect origin = offset, size = trimmed frame size
-    sourceColorRect: { x: offsetX, y: offsetY, w, h },
-    sourceSize: { w: ow || w, h: oh || h },
+    rect: [x, y, w, h],
+    offset: [ox || 0, oy || 0],
+    originalSize: [ow || w, oh || h],
+    rotated: !!frame.rotated,
   };
-}
-
-function formatPlistRect(x, y, w, h) {
-  return `{{${x},${y}},{${w},${h}}}`;
-}
-
-function formatPlistPair(a, b) {
-  return `{${a},${b}}`;
-}
-
-/** Build Texture Packer plist XML matching Cocos Creator 2.4 format 2. */
-function buildTexturePackerPlist(frames, metadata) {
-  const lines = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    '<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">',
-    '<plist version="1.0">',
-    '    <dict>',
-    '        <key>frames</key>',
-    '        <dict>',
-  ];
-
-  for (const [name, frame] of Object.entries(frames)) {
-    lines.push(`            <key>${name}</key>`);
-    lines.push('            <dict>');
-    lines.push(`                <key>frame</key><string>${formatPlistRect(frame.frame.x, frame.frame.y, frame.frame.w, frame.frame.h)}</string>`);
-    lines.push(`                <key>offset</key><string>${formatPlistPair(frame.offset.x, frame.offset.y)}</string>`);
-    lines.push(`                <key>rotated</key><${frame.rotated ? 'true/>' : 'false/>'}`);
-    lines.push(`                <key>sourceColorRect</key><string>${formatPlistRect(frame.sourceColorRect.x, frame.sourceColorRect.y, frame.sourceColorRect.w, frame.sourceColorRect.h)}</string>`);
-    lines.push(`                <key>sourceSize</key><string>${formatPlistPair(frame.sourceSize.w, frame.sourceSize.h)}</string>`);
-    lines.push('            </dict>');
-  }
-
-  lines.push('        </dict>');
-  lines.push('        <key>metadata</key>');
-  lines.push('        <dict>');
-  lines.push('            <key>format</key><integer>2</integer>');
-  lines.push(`            <key>realTextureFileName</key><string>${metadata.textureFileName}</string>`);
-  lines.push(`            <key>size</key><string>${formatPlistPair(metadata.width, metadata.height)}</string>`);
-  lines.push(`            <key>smartupdate</key><string>${metadata.smartupdate}</string>`);
-  lines.push(`            <key>textureFileName</key><string>${metadata.textureFileName}</string>`);
-  lines.push('        </dict>');
-  lines.push('    </dict>');
-  lines.push('</plist>');
-  return lines.join('\n');
 }
 
 function computeAtlasPixelSize(frames) {
   let width = 0;
   let height = 0;
   for (const frame of Object.values(frames)) {
-    const { x, y } = frame.frame;
-    const trimW = frame.trimWidth != null ? frame.trimWidth : frame.frame.w;
-    const trimH = frame.trimHeight != null ? frame.trimHeight : frame.frame.h;
-    if (frame.rotated) {
-      width = Math.max(width, x + trimH);
-      height = Math.max(height, y + trimW);
-    } else {
-      width = Math.max(width, x + trimW);
-      height = Math.max(height, y + trimH);
-    }
+    const [x, y, w, h] = frame.rect;
+    width = Math.max(width, x + w);
+    height = Math.max(height, y + h);
   }
   return { width, height };
 }
@@ -177,6 +124,9 @@ function buildPlistMeta({
   const subMetas = {};
 
   for (const [frameKey, frame] of Object.entries(frames)) {
+    const [trimX, trimY, width, height] = frame.rect;
+    const [offsetX, offsetY] = frame.offset;
+    const [rawWidth, rawHeight] = frame.originalSize;
     subMetas[frameKey] = {
       ver: '1.0.6',
       uuid: frame.sfUuid ? decodeUuid(frame.sfUuid) : uuidUtils.generateUuid(),
@@ -185,14 +135,14 @@ function buildPlistMeta({
       trimType: 'auto',
       trimThreshold: 1,
       rotated: !!frame.rotated,
-      offsetX: frame.offset.x,
-      offsetY: frame.offset.y,
-      trimX: frame.frame.x,
-      trimY: frame.frame.y,
-      width: frame.trimWidth != null ? frame.trimWidth : frame.frame.w,
-      height: frame.trimHeight != null ? frame.trimHeight : frame.frame.h,
-      rawWidth: frame.sourceSize.w,
-      rawHeight: frame.sourceSize.h,
+      offsetX,
+      offsetY,
+      trimX,
+      trimY,
+      width,
+      height,
+      rawWidth,
+      rawHeight,
       borderTop: 0,
       borderBottom: 0,
       borderLeft: 0,
@@ -251,17 +201,15 @@ async function recoverSpriteAtlasPlist({
     };
   }
 
-  // Creator adds 2px padding to atlas dimensions vs max frame extent.
   const { width, height } = computeAtlasPixelSize(plistFrames);
-  const atlasWidth = width + 2;
-  const atlasHeight = height + 2;
   const textureFileName = `${plistBaseName}.png`;
-  const plistXml = buildTexturePackerPlist(plistFrames, {
-    textureFileName,
-    width: atlasWidth,
-    height: atlasHeight,
-    smartupdate: `$TexturePacker:SmartUpdate:${uuidUtils.generateUuid()}$`,
-  });
+  const plistXml = generateFormat3Plist(
+    { textureFileName, frames: plistFrames, size: [width, height] },
+    {
+      textureFileName,
+      smartupdate: `$TexturePacker:SmartUpdate:${uuidUtils.generateUuid()}$`,
+    },
+  );
 
   await writeFile(plistPath, plistXml);
 
@@ -279,8 +227,8 @@ async function recoverSpriteAtlasPlist({
     textureUuid: textureUuid || '',
     frames: plistFrames,
     baseName: plistBaseName,
-    atlasWidth,
-    atlasHeight,
+    atlasWidth: width,
+    atlasHeight: height,
   });
   await writeFile(`${plistPath}.meta`, JSON.stringify(meta, null, 2));
 
@@ -731,9 +679,49 @@ async function recoverBitmapFont({ cfg, uuid, outBase, doc }) {
   return true;
 }
 
+/**
+ * Regenerate plists from bundle pack JSON (same flow as cocosRes dealRes.ts).
+ * Pack files hold authoritative sprite-frame rect/rotation data.
+ */
+async function recoverPlistsFromPacks(cfg, bundleOut) {
+  let count = 0;
+  for (const packUuid of Object.keys(cfg.packs || {})) {
+    const packPath = getImportPath(cfg, packUuid, '.json');
+    if (!packPath || !fs.existsSync(packPath)) continue;
+
+    let jsonData;
+    try {
+      jsonData = JSON.parse(await readFile(packPath, 'utf-8'));
+    } catch {
+      continue;
+    }
+
+    const atlasData = parseCreatorPackJSON(jsonData);
+    const frameCount = Object.keys(atlasData.frames).length;
+    if (frameCount === 0) continue;
+
+    const relPath = resolvePackOutputPath(cfg, jsonData);
+    if (!relPath) continue;
+
+    const plistBase = path.basename(relPath);
+    const plistPath = path.join(bundleOut, `${relPath}.plist`);
+    await mkdir(path.dirname(plistPath), { recursive: true });
+
+    const plistXml = generateFormat3Plist(atlasData, {
+      textureFileName: `${plistBase}.png`,
+      smartupdate: `$TexturePacker:SmartUpdate:${uuidUtils.generateUuid()}$`,
+    });
+    await writeFile(plistPath, plistXml);
+    count += 1;
+    logger.info(`Recovered sprite atlas (pack): ${path.basename(plistPath)} (${frameCount} frames)`);
+  }
+  return count;
+}
+
 module.exports = {
   recoverSpinePathGroup,
   recoverSpriteAtlasPlist,
+  recoverPlistsFromPacks,
   recoverEffectAsset,
   recoverMaterialAsset,
   recoverBitmapFont,
