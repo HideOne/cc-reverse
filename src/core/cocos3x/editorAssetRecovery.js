@@ -31,19 +31,29 @@ function extractTypedItem(doc, typeName) {
 /**
  * Parse sprite frame rect data from rehydrated or compact import docs.
  * @param {*} doc
- * @returns {{ name: string, rect: number[], offset: number[], originalSize: number[] }|null}
+ * @returns {{ name: string, rect: number[], offset: number[], originalSize: number[], rotated: boolean }|null}
  */
 function parseFrameRectFromDoc(doc) {
   if (!doc) return null;
 
-  if (Array.isArray(doc) && doc[0] && doc[0].name && Array.isArray(doc[0].rect)) {
-    const item = doc[0];
-    return {
-      name: item.name,
-      rect: item.rect,
-      offset: item.offset || [0, 0],
-      originalSize: item.originalSize || [item.rect[2] || 0, item.rect[3] || 0],
-    };
+  if (doc.name && Array.isArray(doc.rect)) {
+    return extractFrameFields(doc);
+  }
+
+  if (Array.isArray(doc)) {
+    if (doc[0] && doc[0].name && Array.isArray(doc[0].rect)) {
+      return extractFrameFields(doc[0]);
+    }
+    if (Array.isArray(doc[0]) && doc[0][0] && doc[0][0].name && Array.isArray(doc[0][0].rect)) {
+      return extractFrameFields(doc[0][0]);
+    }
+  }
+
+  if (doc.__cc_reverse__ === 'bad-mask' && Array.isArray(doc.objectData)) {
+    const inner = doc.objectData[0] && doc.objectData[0][0];
+    if (inner && inner.name && Array.isArray(inner.rect)) {
+      return extractFrameFields(inner);
+    }
   }
 
   const item = extractTypedItem(doc, 'cc.SpriteFrame');
@@ -54,28 +64,45 @@ function parseFrameRectFromDoc(doc) {
   const rect = Array.isArray(content.rect) ? content.rect : null;
   if (!name || !rect) return null;
 
-  return {
+  return extractFrameFields({
     name,
     rect,
-    offset: Array.isArray(content.offset) ? content.offset : [0, 0],
-    originalSize: Array.isArray(content.originalSize)
-      ? content.originalSize
+    offset: content.offset,
+    originalSize: content.originalSize,
+    rotated: content.rotated != null ? content.rotated : item._rotated,
+  });
+}
+
+function extractFrameFields(obj) {
+  const rect = obj.rect;
+  return {
+    name: obj.name,
+    rect,
+    offset: Array.isArray(obj.offset) ? obj.offset : [0, 0],
+    originalSize: Array.isArray(obj.originalSize)
+      ? obj.originalSize
       : [rect[2] || 0, rect[3] || 0],
+    rotated: obj.rotated === 1 || obj.rotated === true,
   };
 }
 
 function frameToPlistEntry(frame) {
   const [x, y, w, h] = frame.rect;
+  const rotated = !!frame.rotated;
   const ox = Array.isArray(frame.offset) ? frame.offset[0] : frame.offset.x;
   const oy = Array.isArray(frame.offset) ? frame.offset[1] : frame.offset.y;
   const ow = Array.isArray(frame.originalSize) ? frame.originalSize[0] : frame.originalSize.w;
   const oh = Array.isArray(frame.originalSize) ? frame.originalSize[1] : frame.originalSize.h;
   const offsetX = ox || 0;
   const offsetY = oy || 0;
+  const frameW = rotated ? h : w;
+  const frameH = rotated ? w : h;
   return {
-    frame: { x, y, w, h },
+    frame: { x, y, w: frameW, h: frameH },
     offset: { x: offsetX, y: offsetY },
-    rotated: false,
+    rotated,
+    trimWidth: w,
+    trimHeight: h,
     // Creator 2.4: sourceColorRect origin = offset, size = trimmed frame size
     sourceColorRect: { x: offsetX, y: offsetY, w, h },
     sourceSize: { w: ow || w, h: oh || h },
@@ -106,7 +133,7 @@ function buildTexturePackerPlist(frames, metadata) {
     lines.push('            <dict>');
     lines.push(`                <key>frame</key><string>${formatPlistRect(frame.frame.x, frame.frame.y, frame.frame.w, frame.frame.h)}</string>`);
     lines.push(`                <key>offset</key><string>${formatPlistPair(frame.offset.x, frame.offset.y)}</string>`);
-    lines.push('                <key>rotated</key><false/>');
+    lines.push(`                <key>rotated</key><${frame.rotated ? 'true/>' : 'false/>'}`);
     lines.push(`                <key>sourceColorRect</key><string>${formatPlistRect(frame.sourceColorRect.x, frame.sourceColorRect.y, frame.sourceColorRect.w, frame.sourceColorRect.h)}</string>`);
     lines.push(`                <key>sourceSize</key><string>${formatPlistPair(frame.sourceSize.w, frame.sourceSize.h)}</string>`);
     lines.push('            </dict>');
@@ -130,8 +157,16 @@ function computeAtlasPixelSize(frames) {
   let width = 0;
   let height = 0;
   for (const frame of Object.values(frames)) {
-    width = Math.max(width, frame.frame.x + frame.frame.w);
-    height = Math.max(height, frame.frame.y + frame.frame.h);
+    const { x, y } = frame.frame;
+    const trimW = frame.trimWidth != null ? frame.trimWidth : frame.frame.w;
+    const trimH = frame.trimHeight != null ? frame.trimHeight : frame.frame.h;
+    if (frame.rotated) {
+      width = Math.max(width, x + trimH);
+      height = Math.max(height, y + trimW);
+    } else {
+      width = Math.max(width, x + trimW);
+      height = Math.max(height, y + trimH);
+    }
   }
   return { width, height };
 }
@@ -149,13 +184,13 @@ function buildPlistMeta({
       rawTextureUuid: textureUuid,
       trimType: 'auto',
       trimThreshold: 1,
-      rotated: false,
+      rotated: !!frame.rotated,
       offsetX: frame.offset.x,
       offsetY: frame.offset.y,
       trimX: frame.frame.x,
       trimY: frame.frame.y,
-      width: frame.frame.w,
-      height: frame.frame.h,
+      width: frame.trimWidth != null ? frame.trimWidth : frame.frame.w,
+      height: frame.trimHeight != null ? frame.trimHeight : frame.frame.h,
       rawWidth: frame.sourceSize.w,
       rawHeight: frame.sourceSize.h,
       borderTop: 0,
@@ -210,6 +245,7 @@ async function recoverSpriteAtlasPlist({
         rect: [0, 0, 0, 0],
         offset: [0, 0],
         originalSize: [0, 0],
+        rotated: false,
       }),
       sfUuid,
     };
@@ -346,7 +382,8 @@ async function recoverSpinePathGroup({
     const copied = await copyNativeTexture({
       cfg, uuid: textureEntry.uuid, destBase: outBase, globNative,
     });
-    await writeFile(`${outBase}.png.meta`, JSON.stringify({
+    const texExt = copied.copied ? copied.ext : '.png';
+    await writeFile(`${outBase}${texExt}.meta`, JSON.stringify({
       ver: '2.3.7',
       uuid: texUuid,
       importer: 'texture',
@@ -430,14 +467,25 @@ const SPRITE_EFFECT_FS = `  precision highp float;
     #endif
   }`;
 
-function isSpriteLikeEffect(shader, pass) {
-  if (!shader || !shader.glsl1) return false;
-  const { vert, frag } = shader.glsl1;
+function isStandardSpriteEffect(shader, pass) {
+  if (!shader || !shader.glsl3) return false;
   const props = pass && pass.properties ? Object.keys(pass.properties) : [];
-  return props.includes('texture')
-    && vert.includes('a_position')
-    && (vert.includes('a_uv0') || frag.includes('USE_TEXTURE'))
-    && (frag.includes('ALPHA_TEST') || frag.includes('alphaThreshold'));
+  const onlyBaseProps = props.every((p) => p === 'texture' || p === 'alphaThreshold');
+  const extraBlocks = (shader.blocks || []).filter((b) => b.name !== 'ALPHA_TEST');
+  return onlyBaseProps && extraBlocks.length === 0;
+}
+
+function isStandardSpriteVertex(shader) {
+  const vert = (shader.glsl3 && shader.glsl3.vert) || '';
+  return vert.includes('a_position')
+    && vert.includes('cc_matViewProj')
+    && !vert.includes('uniform PROPERTIES')
+    && !vert.includes('uniform Property');
+}
+
+function glsl3ToCCProgramBody(code) {
+  if (!code) return '';
+  return code.trim().split('\n').map((line) => `  ${line}`).join('\n');
 }
 
 function formatEffectPropertyValue(prop) {
@@ -492,12 +540,14 @@ function reconstructEffectSource(item) {
 
   let vsSource;
   let fsSource;
-  if (isSpriteLikeEffect(shader, pass)) {
+  if (isStandardSpriteEffect(shader, pass)) {
     vsSource = SPRITE_EFFECT_VS;
     fsSource = SPRITE_EFFECT_FS;
   } else {
-    vsSource = (shader.glsl1 && shader.glsl1.vert) || '';
-    fsSource = (shader.glsl1 && shader.glsl1.frag) || '';
+    vsSource = isStandardSpriteVertex(shader)
+      ? SPRITE_EFFECT_VS
+      : glsl3ToCCProgramBody(shader.glsl3 && shader.glsl3.vert);
+    fsSource = glsl3ToCCProgramBody(shader.glsl3 && shader.glsl3.frag);
   }
 
   return [
@@ -591,10 +641,103 @@ async function recoverMaterialAsset({ uuid, outBase, doc }) {
   return true;
 }
 
+function computeAtlasSizeFromFontDefs(fontDefDictionary) {
+  let scaleW = 0;
+  let scaleH = 0;
+  for (const def of Object.values(fontDefDictionary || {})) {
+    const rect = def.rect || {};
+    scaleW = Math.max(scaleW, (rect.x || 0) + (rect.width || 0));
+    scaleH = Math.max(scaleH, (rect.y || 0) + (rect.height || 0));
+  }
+  return { scaleW, scaleH };
+}
+
+function reconstructFntText(item, atlasSize) {
+  const cfg = item._fntConfig;
+  if (!cfg || !cfg.fontDefDictionary) return null;
+
+  const fontSize = item.fontSize || cfg.fontSize || 32;
+  const lineHeight = cfg.commonHeight || fontSize;
+  const { scaleW, scaleH } = atlasSize || computeAtlasSizeFromFontDefs(cfg.fontDefDictionary);
+  const atlasName = cfg.atlasName || `${item._name || 'font'}.png`;
+  const chars = cfg.fontDefDictionary;
+  const charIds = Object.keys(chars).sort((a, b) => {
+    const ra = chars[a].rect || {};
+    const rb = chars[b].rect || {};
+    const dx = (ra.x || 0) - (rb.x || 0);
+    if (dx !== 0) return dx;
+    return (ra.y || 0) - (rb.y || 0);
+  });
+
+  const lines = [
+    `info face="CustomFont" size=${fontSize} bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=0`,
+    `common lineHeight=${lineHeight} base=${fontSize} scaleW=${scaleW} scaleH=${scaleH} pages=1 packed=0`,
+    `page id=0 file="${atlasName}"`,
+    `chars count=${charIds.length}`,
+  ];
+
+  for (const id of charIds) {
+    const def = chars[id];
+    const rect = def.rect || {};
+    lines.push([
+      `char id=${id}`,
+      `x=${rect.x || 0}`,
+      `y=${rect.y || 0}`,
+      `width=${rect.width || 0}`,
+      `height=${rect.height || 0}`,
+      `xoffset=${def.xOffset || 0}`,
+      `yoffset=${def.yOffset || 0}`,
+      `xadvance=${def.xAdvance || 0}`,
+      'page=0',
+      'chnl=15',
+    ].join(' '));
+  }
+
+  return `${lines.join('\n')}\n`;
+}
+
+function findSiblingTextureUuid(cfg, fontUuid) {
+  if (!cfg?.paths?.[fontUuid]) return null;
+  const assetPath = cfg.paths[fontUuid].path;
+  const sibling = Object.entries(cfg.paths).find(([, info]) => (
+    info.path === assetPath && info.type === 'cc.Texture2D' && !info.subAsset
+  ));
+  return sibling ? decodeUuid(sibling[0]) : null;
+}
+
+/**
+ * Write cc.BitmapFont as Creator 2.4 .fnt (+ .fnt.meta) from _fntConfig.
+ */
+async function recoverBitmapFont({ cfg, uuid, outBase, doc }) {
+  const item = extractTypedItem(doc, 'cc.BitmapFont');
+  if (!item || !item._fntConfig) return false;
+
+  const atlasSize = computeAtlasSizeFromFontDefs(item._fntConfig.fontDefDictionary);
+  const fntText = reconstructFntText(item, atlasSize);
+  if (!fntText) return false;
+
+  const fntPath = `${outBase}.fnt`;
+  await writeFile(fntPath, fntText);
+  await writeFile(`${fntPath}.meta`, JSON.stringify({
+    ver: '2.1.2',
+    uuid: decodeUuid(uuid),
+    importer: 'bitmap-font',
+    textureUuid: findSiblingTextureUuid(cfg, uuid) || '',
+    fontSize: item.fontSize || item._fntConfig.fontSize || 32,
+    subMetas: {},
+  }, null, 2));
+
+  logger.info(`Recovered bitmap font: ${path.basename(fntPath)}`);
+  return true;
+}
+
 module.exports = {
   recoverSpinePathGroup,
   recoverSpriteAtlasPlist,
   recoverEffectAsset,
   recoverMaterialAsset,
+  recoverBitmapFont,
   parseFrameRectFromDoc,
+  frameToPlistEntry,
+  reconstructFntText,
 };

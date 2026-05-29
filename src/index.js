@@ -21,7 +21,7 @@ program
   .option('--bundle <name>', '仅处理指定 bundle (3.x, 可重复)', collectList, [])
   .option('--assets-only', '跳过脚本阶段')
   .option('--scripts-only', '跳过资源阶段')
-  .option('--no-astc-convert', '跳过 ASTC -> WebP 后处理')
+  .option('--no-astc-convert', '跳过 ASTC -> WebP 及 plist 纹理引用对齐')
   .parse(process.argv);
 
 function collectList(value, previous) {

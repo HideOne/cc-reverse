@@ -26,7 +26,7 @@ module.exports = {
         extractAnimations: true,
         optimizeSprites: false,
         spriteOutputMode: "single", // "single"（逐张导出）或 "atlas"（图集模式）
-        convertAstcToWebp: true,    // 反解完成后用 astcenc 将 .astc 转为 .webp
+        convertAstcToWebp: true,    // 反解完成后将 .astc 转为 .webp，并同步 plist/spine 纹理引用
         astcencPath: null,          // 默认 tool/astcenc-avx2.exe
         cwebpPath: null             // PNG->WebP 备用工具，默认 tool/cwebp.exe 或 sharp
     },

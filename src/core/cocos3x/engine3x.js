@@ -25,7 +25,7 @@ const { parseBundleConfig, getImportPath, getNativePath, findBundleConfigPath } 
 const { isCcon, decodeCcon } = require('./ccon');
 const { inspect } = require('./deserializer');
 const { rehydrateIFileData, expandEditorUuids, expandEditorFormat } = require('./rehydrate');
-const { recoverSpinePathGroup, recoverSpriteAtlasPlist, recoverEffectAsset, recoverMaterialAsset } = require('./editorAssetRecovery');
+const { recoverSpinePathGroup, recoverSpriteAtlasPlist, recoverEffectAsset, recoverMaterialAsset, recoverBitmapFont } = require('./editorAssetRecovery');
 const { writeCocos2xProject } = require('./projectScaffold');
 const parser = require('@babel/parser');
 const generate = require('@babel/generator');
@@ -347,6 +347,24 @@ async function unpackBundle({ bundleDir, outputPath, verbose, flavor = 'unknown'
       } catch (err) {
         result.warnings.push(`${textureEntry.info.path}: ${err.message}`);
       }
+
+      const fontEntry = entries.find((e) => e.info.type === 'cc.BitmapFont');
+      if (fontEntry) {
+        try {
+          const fontOk = await unpackAsset({
+            cfg,
+            uuid: fontEntry.uuid,
+            info: fontEntry.info,
+            bundleOut,
+            verbose,
+            flavor,
+          });
+          handled.add(fontEntry.uuid);
+          if (fontOk) result.recovered += 1;
+        } catch (err) {
+          result.warnings.push(`${fontEntry.info.path}: ${err.message}`);
+        }
+      }
       continue;
     }
 
@@ -564,6 +582,11 @@ async function unpackAsset({ cfg, uuid, info, bundleOut, verbose, flavor = 'unkn
       if (materialOk) return true;
     }
 
+    if (flavor === '2.4.x-bundle' && className === 'cc.BitmapFont') {
+      const fontOk = await recoverBitmapFont({ cfg, uuid, outBase, doc: editorDoc });
+      if (fontOk) return true;
+    }
+
     const skipImportWrite = shouldSkipImportWrite(className);
     if (importRecovered && !skipImportWrite) {
       const outDoc = flavor === '2.4.x-bundle' ? editorDoc : normalizedDoc;
@@ -687,6 +710,8 @@ function parseSpriteFrameFromDoc(doc, sfUuid) {
   const originalSize = Array.isArray(content.originalSize)
     ? content.originalSize
     : [rect[2] || 0, rect[3] || 0];
+  const rotated = content.rotated === 1 || content.rotated === true
+    || entry._rotated === 1 || entry._rotated === true;
   return {
     sfUuid,
     name,
@@ -697,7 +722,7 @@ function parseSpriteFrameFromDoc(doc, sfUuid) {
       rawTextureUuid: textureUuid,
       trimType: 'auto',
       trimThreshold: 1,
-      rotated: false,
+      rotated,
       offsetX: offset[0] || 0,
       offsetY: offset[1] || 0,
       trimX: rect[0] || 0,

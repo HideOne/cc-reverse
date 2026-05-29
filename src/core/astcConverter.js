@@ -1,6 +1,6 @@
 /*
  * Post-process recovered assets: decode .astc with tool/astcenc-avx2.exe,
- * then encode PNG to WebP for Cocos Creator 2.4 editor compatibility.
+ * encode WebP for Cocos Creator 2.4, then align plist / spine texture refs.
  */
 const fs = require('fs');
 const path = require('path');
@@ -224,10 +224,7 @@ async function convertOneAstc({
   const metaAstc = `${astcPath}.meta`;
   const metaWebp = `${webpPath}.meta`;
   const baseName = path.basename(astcPath, '.astc');
-  const tempPng = path.join(
-    tempDir,
-    `${baseName}-${Date.now()}.png`,
-  );
+  const tempPng = path.join(tempDir, `${baseName}-${Date.now()}.png`);
 
   try {
     await decodeAstcToPng(astcencPath, astcPath, tempPng, tempDir);
@@ -265,6 +262,188 @@ async function convertOneAstc({
       }
     }
   }
+}
+
+/**
+ * Walk a directory tree and collect all .plist file paths.
+ * @param {string} rootDir
+ * @returns {Promise<string[]>}
+ */
+async function findPlistFiles(rootDir) {
+  const results = [];
+
+  async function walk(dir) {
+    let entries;
+    try {
+      entries = await readdir(dir);
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry);
+      let st;
+      try {
+        st = await stat(fullPath);
+      } catch {
+        continue;
+      }
+      if (st.isDirectory()) {
+        await walk(fullPath);
+      } else if (entry.endsWith('.plist')) {
+        results.push(fullPath);
+      }
+    }
+  }
+
+  await walk(rootDir);
+  return results;
+}
+
+function isTexturePackerPlist(content) {
+  return content.includes('<key>frames</key>')
+    && content.includes('<key>textureFileName</key>');
+}
+
+function resolveWebpIfExists(dir, pngName) {
+  if (!/\.png$/i.test(pngName)) return null;
+  const webpName = pngName.replace(/\.png$/i, '.webp');
+  if (fs.existsSync(path.join(dir, webpName))) return webpName;
+  return null;
+}
+
+/**
+ * Rename .png texture references to .webp when the webp file exists beside the plist.
+ * Also sync .plist.meta subMetas keys when frame keys are renamed.
+ */
+async function updateOnePlistTextureRefs(plistPath, verbose) {
+  const dir = path.dirname(plistPath);
+  let content = await readFile(plistPath, 'utf-8');
+  if (!isTexturePackerPlist(content)) {
+    return { updated: false, skipped: true };
+  }
+
+  const replacements = new Map();
+  let changed = false;
+
+  for (const key of ['textureFileName', 'realTextureFileName']) {
+    const re = new RegExp(`(<key>${key}</key><string>)([^<]+\\.png)(</string>)`, 'gi');
+    content = content.replace(re, (match, pre, pngName, post) => {
+      const webpName = resolveWebpIfExists(dir, pngName);
+      if (!webpName) return match;
+      changed = true;
+      replacements.set(pngName, webpName);
+      return `${pre}${webpName}${post}`;
+    });
+  }
+
+  content = content.replace(/<key>([^<]+\.png)<\/key>/gi, (match, pngName) => {
+    const webpName = resolveWebpIfExists(dir, pngName);
+    if (!webpName) return match;
+    changed = true;
+    replacements.set(pngName, webpName);
+    return `<key>${webpName}</key>`;
+  });
+
+  if (!changed) return { updated: false };
+
+  await writeFile(plistPath, content);
+
+  const metaPath = `${plistPath}.meta`;
+  if (fs.existsSync(metaPath)) {
+    const meta = JSON.parse(await readFile(metaPath, 'utf-8'));
+    let metaChanged = false;
+
+    if (meta.subMetas && typeof meta.subMetas === 'object') {
+      const nextSubMetas = {};
+      for (const [key, value] of Object.entries(meta.subMetas)) {
+        const webpKey = replacements.get(key) || key;
+        if (webpKey !== key) metaChanged = true;
+        nextSubMetas[webpKey] = value;
+      }
+      if (metaChanged) meta.subMetas = nextSubMetas;
+    }
+
+    if (metaChanged) {
+      await writeFile(metaPath, JSON.stringify(meta, null, 2));
+    }
+  }
+
+  if (verbose) {
+    logger.debug(`Plist refs -> WebP: ${path.basename(plistPath)}`);
+  }
+
+  return { updated: true };
+}
+
+/**
+ * Update spine .atlas first-line texture name when matching .webp exists.
+ */
+async function updateSpineAtlasTextureRefs(assetsRoot, verbose) {
+  const atlasFiles = [];
+  async function walk(dir) {
+    let entries;
+    try {
+      entries = await readdir(dir);
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry);
+      let st;
+      try {
+        st = await stat(fullPath);
+      } catch {
+        continue;
+      }
+      if (st.isDirectory()) await walk(fullPath);
+      else if (entry.endsWith('.atlas')) atlasFiles.push(fullPath);
+    }
+  }
+  await walk(assetsRoot);
+
+  let updated = 0;
+  for (const atlasPath of atlasFiles) {
+    const lines = (await readFile(atlasPath, 'utf-8')).split(/\r?\n/);
+    if (lines.length === 0) continue;
+    const first = lines[0].trim();
+    if (!/\.png$/i.test(first)) continue;
+    const webpName = resolveWebpIfExists(path.dirname(atlasPath), first);
+    if (!webpName) continue;
+    lines[0] = webpName;
+    await writeFile(atlasPath, `${lines.join('\n')}\n`);
+    updated += 1;
+    if (verbose) logger.debug(`Spine atlas -> WebP: ${path.basename(atlasPath)}`);
+  }
+  return { total: atlasFiles.length, updated };
+}
+
+/**
+ * Align Texture Packer plist and spine .atlas texture references with .webp files.
+ */
+async function updatePlistTextureRefs(outputPath, options = {}) {
+  const assetsRoot = path.join(outputPath, 'assets');
+  if (!fs.existsSync(assetsRoot)) {
+    return { total: 0, updated: 0, skipped: true };
+  }
+
+  const plistFiles = await findPlistFiles(assetsRoot);
+  let updated = 0;
+  for (const plistPath of plistFiles) {
+    const result = await updateOnePlistTextureRefs(plistPath, options.verbose);
+    if (result.updated) updated += 1;
+  }
+
+  const spineStats = await updateSpineAtlasTextureRefs(assetsRoot, options.verbose);
+  if (updated > 0 || spineStats.updated > 0) {
+    logger.info(`纹理引用对齐 WebP: plist ${updated}/${plistFiles.length}, spine atlas ${spineStats.updated}/${spineStats.total}`);
+  }
+
+  return {
+    total: plistFiles.length,
+    updated,
+    spineAtlasTotal: spineStats.total,
+    spineAtlasUpdated: spineStats.updated,
+  };
 }
 
 /**
@@ -323,12 +502,22 @@ async function convertAstcToWebp(outputPath, options = {}) {
   }
 
   logger.info(`ASTC 转换完成: ${converted} 成功, ${failed} 失败`);
-  return { total: astcFiles.length, converted, failed, failures };
+
+  const refStats = await updatePlistTextureRefs(outputPath, options);
+  return {
+    total: astcFiles.length,
+    converted,
+    failed,
+    failures,
+    plistRefs: refStats,
+  };
 }
 
 module.exports = {
   convertAstcToWebp,
+  updatePlistTextureRefs,
   findAstcFiles,
+  findPlistFiles,
   resolveAstcencPath,
   rebuildKhronosAstc,
 };

@@ -14,7 +14,7 @@ const { loadConfig } = require('../config/configLoader');
 const { decryptProject, scanJscFiles, extractKeyFromProject } = require('./jscDecryptor');
 const { reverseProject3x } = require('./cocos3x/engine3x');
 const { findBundleConfigPath } = require('./cocos3x/bundleConfig');
-const { convertAstcToWebp } = require('./astcConverter');
+const { convertAstcToWebp, updatePlistTextureRefs } = require('./astcConverter');
 
 // 将异步文件操作转为 Promise
 const readFile = promisify(fs.readFile);
@@ -451,14 +451,18 @@ function parseSettings(settings) {
 }
 
 /**
- * After asset recovery, decode .astc textures to .webp when enabled.
+ * After asset recovery, decode .astc textures to .webp and align plist/spine refs.
  * @param {string} outputPath
  * @param {object} options
  */
 async function runAstcPostProcess(outputPath, options = {}) {
   if (options.scriptsOnly) return null;
   if (global.config?.assets?.convertAstcToWebp === false) return null;
+
   const stats = await convertAstcToWebp(outputPath, { verbose: options.verbose });
+  if (!stats.plistRefs) {
+    stats.plistRefs = await updatePlistTextureRefs(outputPath, { verbose: options.verbose });
+  }
   await appendAstcReport(outputPath, stats);
   return stats;
 }
@@ -475,6 +479,12 @@ async function appendAstcReport(outputPath, stats) {
     `- Converted: ${stats.converted}`,
     `- Failed: ${stats.failed}`,
   ];
+  if (stats.plistRefs) {
+    lines.push(
+      `- Plist refs updated: ${stats.plistRefs.updated}/${stats.plistRefs.total}`,
+      `- Spine atlas refs updated: ${stats.plistRefs.spineAtlasUpdated}/${stats.plistRefs.spineAtlasTotal}`,
+    );
+  }
   await fs.promises.appendFile(reportPath, lines.join('\n'));
 }
 
